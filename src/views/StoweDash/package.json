@@ -1,0 +1,6 @@
+{
+  "name": "StoweDash",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./StoweDash.js"
+}

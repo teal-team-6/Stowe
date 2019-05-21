@@ -1,0 +1,6 @@
+{
+  "name": "StoweLayout",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./StoweLayout.js"
+}
