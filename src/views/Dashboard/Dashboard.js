@@ -22,7 +22,6 @@ import {
 } from 'reactstrap';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
-import routes from '../../routes';
 
 const Widget03 = lazy(() => import('../../views/Widgets/Widget03'));
 
@@ -32,50 +31,6 @@ const brandInfo = getStyle('--info')
 const brandWarning = getStyle('--warning')
 const brandDanger = getStyle('--danger')
 
-function makeDataCall(){
-
-  console.log('running:::>');
-  let res = null;
-  const pollData = {
-      chart1: [1,2,3,4,5],
-      chart2: [1,2,3,4,5],
-  }
-   //res.send(pollData);
-
-   var sql = require("mssql");
-
-    // config for your database
-    var config = {
-       user: 'Rayx1',
-       password: 'Rayx1',
-       server: '192.168.1.105\\RXSQL',
-       database: 'Bizlo',
-       port: 1433
-   };
-
-   // connect to your database
-   sql.connect(config, function (err) {
-       console.log('connected');
-       if (err) console.log(err);
-       // create Request object
-       var request = new sql.Request();
-          
-       // query to the database and get the records
-       request.query('select * from Users', function (err, recordset) {
-           console.log('err ', err);
-           if (err) console.log(err)
-
-           // send records as a response
-           res = recordset;
-           console.log(res);
-       });
-   });
-
-return res;
-   
-
-}
-
 // Card Chart 1
 const cardChartData1 = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -84,7 +39,7 @@ const cardChartData1 = {
       label: 'My First dataset',
       backgroundColor: brandPrimary,
       borderColor: 'rgba(255,255,255,.55)',
-      data: [ 65, 59, 84, 84, 51, 55, 40],
+      data: [65, 59, 84, 84, 51, 55, 40],
     },
   ],
 };
@@ -522,17 +477,10 @@ class Dashboard extends Component {
     });
   }
 
-  getData(){
-    setTimeout(function(){
-      let allData = this.makeDataCall()
-      this.setState({submitted:false});
-    }.bind(this),1000); 
-  }
- 
-
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
-  
+
   render() {
+
     return (
       <div className="animated fadeIn">
         <Row>

@@ -24,7 +24,6 @@
     "enzyme-adapter-react-16": "^1.10.0",
     "flag-icon-css": "^3.3.0",
     "font-awesome": "^4.7.0",
-    "mssql": "^5.0.3",
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",

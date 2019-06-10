@@ -1,0 +1,538 @@
+sql::: >"Select Incomming as Incomming from Call_Stage"
+incoming::: >
+{
+    "recordsets": [
+        [
+            {
+                "Incomming": 2
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "Incomming": 2
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        1
+    ]
+}
+sql::: >"Select In_Que from Call_Stage"
+inQue::: >
+{
+    "recordsets": [
+        [
+            {
+                "In_Que": 0
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "In_Que": 0
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        1
+    ]
+}
+
+sql::: >"select SUM(ac_ring_no_answer) as Ring_No_Answer from Agent_Calls_Details where AC_Date = '2019/5/22' and AC_Agent_Code <> 0"
+noAnswer results::: >
+{
+    "recordsets": [
+        [
+            {
+                "Ring_No_Answer": null
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "Ring_No_Answer": null
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        1
+    ]
+}
+sql::: >"Select longest_Wait_Time from Call_Stage"
+
+longest_Wait_Time results::: >{
+    "recordsets": [
+        [
+            {
+                "longest_Wait_Time": "1970-01-01T00:00:00.000Z"
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "longest_Wait_Time": "1970-01-01T00:00:00.000Z"
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        1
+    ]
+}
+sql::: >"Select Outgoing_Calls as Outgoing from Call_Stage"
+outgoing results::: >
+{
+    "recordsets": [
+        [
+            {
+                "Outgoing": 0
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "Outgoing": 0
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        1
+    ]
+}
+sql::: >"Select Agent.A_Name, Queue_Groups.Q_Name, Agent.A_Status, AC_Ring_No_Answer as Ring_No_Answer, AC_Taken as Answered_Calls, AC_Outbound as OutBound_Calls, (AC_Taken+AC_Outbound) as [All_Calls] from Agent_Calls_Details, Queue_Groups, Agent Where Agent.A_Group = Queue_Groups.Q_Code and Agent_Calls_Details.AC_Date = '2019/5/22' and agent.A_Code = AC_Agent_Code order by Q_Name asc"
+
+avgCallsPerHour results ::: >{
+    "recordsets": [
+        []
+    ],
+    "recordset": [],
+    "output": {},
+    "rowsAffected": [
+        0
+    ]
+}
+sql::: >"select HourPeriod, sum(Call_Amount) as Calls from ( select HourPeriod, case when cd_status = 'Answered' then count(cd_status) else 0 end as [Call_Amount] from HourPeriods left join Call_details on (Datepart(Hour,CD_Time_Of_Call) = Hourval) and (cd_date = '2019/5/22') group by Datepart(Hour,CD_Time_Of_Call), cd_status, hourperiod ) as x group by hourperiod"
+
+callsPerhour results:::>
+{
+    "recordsets": [
+        [
+            {
+                "HourPeriod": "00",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "01",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "02",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "03",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "04",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "05",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "06",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "07",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "08",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "09",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "10",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "11",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "12",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "13",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "14",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "15",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "16",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "17",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "18",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "19",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "20",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "21",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "22",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "23",
+                "Calls": 0
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "HourPeriod": "00",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "01",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "02",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "03",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "04",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "05",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "06",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "07",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "08",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "09",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "10",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "11",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "12",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "13",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "14",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "15",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "16",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "17",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "18",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "19",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "20",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "21",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "22",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "23",
+            "Calls": 0
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        24
+    ]
+}
+
+sql::: >"Select Agent.A_Name, Queue_Groups.Q_Name, Agent.A_Status,AC_Ring_No_Answer as Ring_No_Answer, AC_Taken as Answered_Calls,AC_OutBound as OutBound_Calls, (AC_Taken + AC_OutBound) as [All_Calls] from Agent_Calls_Details, Queue_Groups, (Select cd_Agent_Code, SUM (OutBound_Calls) OutBound_Calls,COUNT(cd_Agent_Code) AllCalls FROM (Select cd_Agent_Code, case when CD_Outbound = 1 then CD_Outbound else  0 end as [OutBound_Calls] from Call_Details where CD_Date = '2019/5/22') Y Group by cd_Agent_Code ) x, Agent Where x.cd_Agent_Code = Agent_Calls_Details.AC_Agent_Code and Agent.A_Group = Queue_Groups.Q_Code and Agent_Calls_Details.Ac_date = '2019/5/22' and agent.A_Code = x.CD_Agent_Code order by Q_Name asc "
+
+agentQueStats results::: >{
+    "recordsets": [
+        []
+    ],
+    "recordset": [],
+    "output": {},
+    "rowsAffected": [
+        0
+    ]
+}
+
+avgRingTime::: >{
+    "recordsets": [
+        [
+            {
+                "HourPeriod": "00",
+                "Total": null
+            },
+            {
+                "HourPeriod": "01",
+                "Total": null
+            },
+            {
+                "HourPeriod": "02",
+                "Total": null
+            },
+            {
+                "HourPeriod": "03",
+                "Total": null
+            },
+            {
+                "HourPeriod": "04",
+                "Total": null
+            },
+            {
+                "HourPeriod": "05",
+                "Total": null
+            },
+            {
+                "HourPeriod": "06",
+                "Total": null
+            },
+            {
+                "HourPeriod": "07",
+                "Total": null
+            },
+            {
+                "HourPeriod": "08",
+                "Total": null
+            },
+            {
+                "HourPeriod": "09",
+                "Total": null
+            },
+            {
+                "HourPeriod": "10",
+                "Total": null
+            },
+            {
+                "HourPeriod": "11",
+                "Total": null
+            },
+            {
+                "HourPeriod": "12",
+                "Total": null
+            },
+            {
+                "HourPeriod": "13",
+                "Total": null
+            },
+            {
+                "HourPeriod": "14",
+                "Total": null
+            },
+            {
+                "HourPeriod": "15",
+                "Total": null
+            },
+            {
+                "HourPeriod": "16",
+                "Total": null
+            },
+            {
+                "HourPeriod": "17",
+                "Total": null
+            },
+            {
+                "HourPeriod": "18",
+                "Total": null
+            },
+            {
+                "HourPeriod": "19",
+                "Total": null
+            },
+            {
+                "HourPeriod": "20",
+                "Total": null
+            },
+            {
+                "HourPeriod": "21",
+                "Total": null
+            },
+            {
+                "HourPeriod": "22",
+                "Total": null
+            },
+            {
+                "HourPeriod": "23",
+                "Total": null
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "HourPeriod": "00",
+            "Total": null
+        },
+        {
+            "HourPeriod": "01",
+            "Total": null
+        },
+        {
+            "HourPeriod": "02",
+            "Total": null
+        },
+        {
+            "HourPeriod": "03",
+            "Total": null
+        },
+        {
+            "HourPeriod": "04",
+            "Total": null
+        },
+        {
+            "HourPeriod": "05",
+            "Total": null
+        },
+        {
+            "HourPeriod": "06",
+            "Total": null
+        },
+        {
+            "HourPeriod": "07",
+            "Total": null
+        },
+        {
+            "HourPeriod": "08",
+            "Total": null
+        },
+        {
+            "HourPeriod": "09",
+            "Total": null
+        },
+        {
+            "HourPeriod": "10",
+            "Total": null
+        },
+        {
+            "HourPeriod": "11",
+            "Total": null
+        },
+        {
+            "HourPeriod": "12",
+            "Total": null
+        },
+        {
+            "HourPeriod": "13",
+            "Total": null
+        },
+        {
+            "HourPeriod": "14",
+            "Total": null
+        },
+        {
+            "HourPeriod": "15",
+            "Total": null
+        },
+        {
+            "HourPeriod": "16",
+            "Total": null
+        },
+        {
+            "HourPeriod": "17",
+            "Total": null
+        },
+        {
+            "HourPeriod": "18",
+            "Total": null
+        },
+        {
+            "HourPeriod": "19",
+            "Total": null
+        },
+        {
+            "HourPeriod": "20",
+            "Total": null
+        },
+        {
+            "HourPeriod": "21",
+            "Total": null
+        },
+        {
+            "HourPeriod": "22",
+            "Total": null
+        },
+        {
+            "HourPeriod": "23",
+            "Total": null
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        24
+    ]
+}

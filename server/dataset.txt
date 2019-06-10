@@ -1,0 +1,1090 @@
+sql::: >"select SUM(ac_ring_no_answer) as Ring_No_Answer from Agent_Calls_Details where AC_Date = '2019/6/6' and AC_Agent_Code <> 0"noAnswer::: >{
+    "recordsets": [
+        [
+            {
+                "Ring_No_Answer": 0
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "Ring_No_Answer": 0
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        1
+    ]
+}sql::: >"Select In_Que from Call_Stage"inQue::: >{
+    "recordsets": [
+        [
+            {
+                "In_Que": 0
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "In_Que": 0
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        1
+    ]
+}sql::: >"Select Incomming as Incomming from Call_Stage"incoming::: >{
+    "recordsets": [
+        [
+            {
+                "Incomming": 55
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "Incomming": 55
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        1
+    ]
+}sql::: >"Select Outgoing_Calls as Outgoing from Call_Stage"outgoing::: >{
+    "recordsets": [
+        [
+            {
+                "Outgoing": 245
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "Outgoing": 245
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        1
+    ]
+}sql::: >"Select longest_Wait_Time from Call_Stage"longest_Wait_Time::: >{
+    "recordsets": [
+        [
+            {
+                "longest_Wait_Time": "1970-01-01T00:00:00.000Z"
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "longest_Wait_Time": "1970-01-01T00:00:00.000Z"
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        1
+    ]
+}sql::: >"Select Agent.A_Name, Queue_Groups.Q_Name, Agent.A_Status, AC_Ring_No_Answer as Ring_No_Answer, AC_Taken as Answered_Calls, AC_Outbound as OutBound_Calls, (AC_Taken+AC_Outbound) as [All_Calls] from Agent_Calls_Details, Queue_Groups, Agent Where Agent.A_Group = Queue_Groups.Q_Code and Agent_Calls_Details.AC_Date = '2019/6/6' and agent.A_Code = AC_Agent_Code order by Q_Name asc"avgCallsPerHour::: >{
+    "recordsets": [
+        [
+            {
+                "A_Name": "Damsley Jacobs",
+                "Q_Name": "NetPOS",
+                "A_Status": "Technical Assistance",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 0,
+                "OutBound_Calls": 8,
+                "All_Calls": 8
+            },
+            {
+                "A_Name": "Curwyn Robertson",
+                "Q_Name": "NetPOS",
+                "A_Status": "Technical Assistance",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 4,
+                "OutBound_Calls": 23,
+                "All_Calls": 27
+            },
+            {
+                "A_Name": "Mfanelo Ngcokovane",
+                "Q_Name": "NetPOS",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 1,
+                "OutBound_Calls": 8,
+                "All_Calls": 9
+            },
+            {
+                "A_Name": "Meagan Adams",
+                "Q_Name": "NetPOS",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 3,
+                "OutBound_Calls": 11,
+                "All_Calls": 14
+            },
+            {
+                "A_Name": "Snazo Qwesha",
+                "Q_Name": "NetPOS",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 3,
+                "OutBound_Calls": 22,
+                "All_Calls": 25
+            },
+            {
+                "A_Name": "Shea Slinger",
+                "Q_Name": "NetPOS",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 4,
+                "OutBound_Calls": 19,
+                "All_Calls": 23
+            },
+            {
+                "A_Name": "Imraan Abrahams ",
+                "Q_Name": "NetPOS",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 4,
+                "OutBound_Calls": 6,
+                "All_Calls": 10
+            },
+            {
+                "A_Name": "Nicholas Arendse",
+                "Q_Name": "NetPOS",
+                "A_Status": null,
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 2,
+                "OutBound_Calls": 14,
+                "All_Calls": 16
+            },
+            {
+                "A_Name": "Dillon Davids",
+                "Q_Name": "PEC & Namos",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 10,
+                "OutBound_Calls": 27,
+                "All_Calls": 37
+            },
+            {
+                "A_Name": "Lona Deli",
+                "Q_Name": "PEC & Namos",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 4,
+                "OutBound_Calls": 19,
+                "All_Calls": 23
+            },
+            {
+                "A_Name": "Angela Hitchcock",
+                "Q_Name": "PEC & Namos",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 0,
+                "OutBound_Calls": 5,
+                "All_Calls": 5
+            },
+            {
+                "A_Name": "Yanga Mlala",
+                "Q_Name": "Retalix",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 4,
+                "OutBound_Calls": 40,
+                "All_Calls": 44
+            },
+            {
+                "A_Name": "Charl Mulder",
+                "Q_Name": "Retalix",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 3,
+                "OutBound_Calls": 16,
+                "All_Calls": 19
+            },
+            {
+                "A_Name": "Rudolph Kaywa",
+                "Q_Name": "Retalix",
+                "A_Status": "Technical Assistance",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 0,
+                "OutBound_Calls": 2,
+                "All_Calls": 2
+            },
+            {
+                "A_Name": "Kyle Petersen",
+                "Q_Name": "Retalix",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 2,
+                "OutBound_Calls": 17,
+                "All_Calls": 19
+            },
+            {
+                "A_Name": "Siyanda Mngeni",
+                "Q_Name": "Retalix",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 8,
+                "OutBound_Calls": 8,
+                "All_Calls": 16
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "A_Name": "Damsley Jacobs",
+            "Q_Name": "NetPOS",
+            "A_Status": "Technical Assistance",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 0,
+            "OutBound_Calls": 8,
+            "All_Calls": 8
+        },
+        {
+            "A_Name": "Curwyn Robertson",
+            "Q_Name": "NetPOS",
+            "A_Status": "Technical Assistance",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 4,
+            "OutBound_Calls": 23,
+            "All_Calls": 27
+        },
+        {
+            "A_Name": "Mfanelo Ngcokovane",
+            "Q_Name": "NetPOS",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 1,
+            "OutBound_Calls": 8,
+            "All_Calls": 9
+        },
+        {
+            "A_Name": "Meagan Adams",
+            "Q_Name": "NetPOS",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 3,
+            "OutBound_Calls": 11,
+            "All_Calls": 14
+        },
+        {
+            "A_Name": "Snazo Qwesha",
+            "Q_Name": "NetPOS",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 3,
+            "OutBound_Calls": 22,
+            "All_Calls": 25
+        },
+        {
+            "A_Name": "Shea Slinger",
+            "Q_Name": "NetPOS",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 4,
+            "OutBound_Calls": 19,
+            "All_Calls": 23
+        },
+        {
+            "A_Name": "Imraan Abrahams ",
+            "Q_Name": "NetPOS",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 4,
+            "OutBound_Calls": 6,
+            "All_Calls": 10
+        },
+        {
+            "A_Name": "Nicholas Arendse",
+            "Q_Name": "NetPOS",
+            "A_Status": null,
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 2,
+            "OutBound_Calls": 14,
+            "All_Calls": 16
+        },
+        {
+            "A_Name": "Dillon Davids",
+            "Q_Name": "PEC & Namos",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 10,
+            "OutBound_Calls": 27,
+            "All_Calls": 37
+        },
+        {
+            "A_Name": "Lona Deli",
+            "Q_Name": "PEC & Namos",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 4,
+            "OutBound_Calls": 19,
+            "All_Calls": 23
+        },
+        {
+            "A_Name": "Angela Hitchcock",
+            "Q_Name": "PEC & Namos",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 0,
+            "OutBound_Calls": 5,
+            "All_Calls": 5
+        },
+        {
+            "A_Name": "Yanga Mlala",
+            "Q_Name": "Retalix",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 4,
+            "OutBound_Calls": 40,
+            "All_Calls": 44
+        },
+        {
+            "A_Name": "Charl Mulder",
+            "Q_Name": "Retalix",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 3,
+            "OutBound_Calls": 16,
+            "All_Calls": 19
+        },
+        {
+            "A_Name": "Rudolph Kaywa",
+            "Q_Name": "Retalix",
+            "A_Status": "Technical Assistance",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 0,
+            "OutBound_Calls": 2,
+            "All_Calls": 2
+        },
+        {
+            "A_Name": "Kyle Petersen",
+            "Q_Name": "Retalix",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 2,
+            "OutBound_Calls": 17,
+            "All_Calls": 19
+        },
+        {
+            "A_Name": "Siyanda Mngeni",
+            "Q_Name": "Retalix",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 8,
+            "OutBound_Calls": 8,
+            "All_Calls": 16
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        16
+    ]
+}sql::: >"Select Agent.A_Name, Queue_Groups.Q_Name, Agent.A_Status,AC_Ring_No_Answer as Ring_No_Answer, AC_Taken as Answered_Calls,AC_OutBound as OutBound_Calls, (AC_Taken + AC_OutBound) as [All_Calls] from Agent_Calls_Details, Queue_Groups, (Select cd_Agent_Code, SUM (OutBound_Calls) OutBound_Calls,COUNT(cd_Agent_Code) AllCalls FROM (Select cd_Agent_Code, case when CD_Outbound = 1 then CD_Outbound else  0 end as [OutBound_Calls] from Call_Details where CD_Date = '2019/6/6') Y Group by cd_Agent_Code ) x, Agent Where x.cd_Agent_Code = Agent_Calls_Details.AC_Agent_Code and Agent.A_Group = Queue_Groups.Q_Code and Agent_Calls_Details.Ac_date = '2019/6/6' and agent.A_Code = x.CD_Agent_Code order by Q_Name asc "agentQueStats::: >{
+    "recordsets": [
+        [
+            {
+                "A_Name": "Meagan Adams",
+                "Q_Name": "NetPOS",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 3,
+                "OutBound_Calls": 11,
+                "All_Calls": 14
+            },
+            {
+                "A_Name": "Shea Slinger",
+                "Q_Name": "NetPOS",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 4,
+                "OutBound_Calls": 19,
+                "All_Calls": 23
+            },
+            {
+                "A_Name": "Curwyn Robertson",
+                "Q_Name": "NetPOS",
+                "A_Status": "Technical Assistance",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 4,
+                "OutBound_Calls": 23,
+                "All_Calls": 27
+            },
+            {
+                "A_Name": "Damsley Jacobs",
+                "Q_Name": "NetPOS",
+                "A_Status": "Technical Assistance",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 0,
+                "OutBound_Calls": 8,
+                "All_Calls": 8
+            },
+            {
+                "A_Name": "Snazo Qwesha",
+                "Q_Name": "NetPOS",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 3,
+                "OutBound_Calls": 22,
+                "All_Calls": 25
+            },
+            {
+                "A_Name": "Mfanelo Ngcokovane",
+                "Q_Name": "NetPOS",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 1,
+                "OutBound_Calls": 8,
+                "All_Calls": 9
+            },
+            {
+                "A_Name": "Imraan Abrahams ",
+                "Q_Name": "NetPOS",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 4,
+                "OutBound_Calls": 6,
+                "All_Calls": 10
+            },
+            {
+                "A_Name": "Nicholas Arendse",
+                "Q_Name": "NetPOS",
+                "A_Status": null,
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 2,
+                "OutBound_Calls": 14,
+                "All_Calls": 16
+            },
+            {
+                "A_Name": "Dillon Davids",
+                "Q_Name": "PEC & Namos",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 10,
+                "OutBound_Calls": 27,
+                "All_Calls": 37
+            },
+            {
+                "A_Name": "Angela Hitchcock",
+                "Q_Name": "PEC & Namos",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 0,
+                "OutBound_Calls": 5,
+                "All_Calls": 5
+            },
+            {
+                "A_Name": "Lona Deli",
+                "Q_Name": "PEC & Namos",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 4,
+                "OutBound_Calls": 19,
+                "All_Calls": 23
+            },
+            {
+                "A_Name": "Charl Mulder",
+                "Q_Name": "Retalix",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 3,
+                "OutBound_Calls": 16,
+                "All_Calls": 19
+            },
+            {
+                "A_Name": "Rudolph Kaywa",
+                "Q_Name": "Retalix",
+                "A_Status": "Technical Assistance",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 0,
+                "OutBound_Calls": 2,
+                "All_Calls": 2
+            },
+            {
+                "A_Name": "Siyanda Mngeni",
+                "Q_Name": "Retalix",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 8,
+                "OutBound_Calls": 8,
+                "All_Calls": 16
+            },
+            {
+                "A_Name": "Kyle Petersen",
+                "Q_Name": "Retalix",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 2,
+                "OutBound_Calls": 17,
+                "All_Calls": 19
+            },
+            {
+                "A_Name": "Yanga Mlala",
+                "Q_Name": "Retalix",
+                "A_Status": "",
+                "Ring_No_Answer": 0,
+                "Answered_Calls": 4,
+                "OutBound_Calls": 40,
+                "All_Calls": 44
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "A_Name": "Meagan Adams",
+            "Q_Name": "NetPOS",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 3,
+            "OutBound_Calls": 11,
+            "All_Calls": 14
+        },
+        {
+            "A_Name": "Shea Slinger",
+            "Q_Name": "NetPOS",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 4,
+            "OutBound_Calls": 19,
+            "All_Calls": 23
+        },
+        {
+            "A_Name": "Curwyn Robertson",
+            "Q_Name": "NetPOS",
+            "A_Status": "Technical Assistance",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 4,
+            "OutBound_Calls": 23,
+            "All_Calls": 27
+        },
+        {
+            "A_Name": "Damsley Jacobs",
+            "Q_Name": "NetPOS",
+            "A_Status": "Technical Assistance",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 0,
+            "OutBound_Calls": 8,
+            "All_Calls": 8
+        },
+        {
+            "A_Name": "Snazo Qwesha",
+            "Q_Name": "NetPOS",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 3,
+            "OutBound_Calls": 22,
+            "All_Calls": 25
+        },
+        {
+            "A_Name": "Mfanelo Ngcokovane",
+            "Q_Name": "NetPOS",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 1,
+            "OutBound_Calls": 8,
+            "All_Calls": 9
+        },
+        {
+            "A_Name": "Imraan Abrahams ",
+            "Q_Name": "NetPOS",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 4,
+            "OutBound_Calls": 6,
+            "All_Calls": 10
+        },
+        {
+            "A_Name": "Nicholas Arendse",
+            "Q_Name": "NetPOS",
+            "A_Status": null,
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 2,
+            "OutBound_Calls": 14,
+            "All_Calls": 16
+        },
+        {
+            "A_Name": "Dillon Davids",
+            "Q_Name": "PEC & Namos",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 10,
+            "OutBound_Calls": 27,
+            "All_Calls": 37
+        },
+        {
+            "A_Name": "Angela Hitchcock",
+            "Q_Name": "PEC & Namos",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 0,
+            "OutBound_Calls": 5,
+            "All_Calls": 5
+        },
+        {
+            "A_Name": "Lona Deli",
+            "Q_Name": "PEC & Namos",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 4,
+            "OutBound_Calls": 19,
+            "All_Calls": 23
+        },
+        {
+            "A_Name": "Charl Mulder",
+            "Q_Name": "Retalix",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 3,
+            "OutBound_Calls": 16,
+            "All_Calls": 19
+        },
+        {
+            "A_Name": "Rudolph Kaywa",
+            "Q_Name": "Retalix",
+            "A_Status": "Technical Assistance",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 0,
+            "OutBound_Calls": 2,
+            "All_Calls": 2
+        },
+        {
+            "A_Name": "Siyanda Mngeni",
+            "Q_Name": "Retalix",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 8,
+            "OutBound_Calls": 8,
+            "All_Calls": 16
+        },
+        {
+            "A_Name": "Kyle Petersen",
+            "Q_Name": "Retalix",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 2,
+            "OutBound_Calls": 17,
+            "All_Calls": 19
+        },
+        {
+            "A_Name": "Yanga Mlala",
+            "Q_Name": "Retalix",
+            "A_Status": "",
+            "Ring_No_Answer": 0,
+            "Answered_Calls": 4,
+            "OutBound_Calls": 40,
+            "All_Calls": 44
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        16
+    ]
+}sql::: >"select HourPeriod, datepart(second,DATEADD(MS,Avg(datediff(ms,'00:00:00.000', CD_Ring_Time)),'00:00:00.000')) as [Total] from HourPeriods Left Join Call_details on (Datepart(Hour,CD_Time_Of_Call) = HourVal) and cd_date = '2019/6/6'  group by HourPeriod"avgRingTime::: >{
+    "recordsets": [
+        [
+            {
+                "HourPeriod": "00",
+                "Total": null
+            },
+            {
+                "HourPeriod": "01",
+                "Total": null
+            },
+            {
+                "HourPeriod": "02",
+                "Total": null
+            },
+            {
+                "HourPeriod": "03",
+                "Total": null
+            },
+            {
+                "HourPeriod": "04",
+                "Total": 27
+            },
+            {
+                "HourPeriod": "05",
+                "Total": null
+            },
+            {
+                "HourPeriod": "06",
+                "Total": null
+            },
+            {
+                "HourPeriod": "07",
+                "Total": 7
+            },
+            {
+                "HourPeriod": "08",
+                "Total": 10
+            },
+            {
+                "HourPeriod": "09",
+                "Total": 11
+            },
+            {
+                "HourPeriod": "10",
+                "Total": 13
+            },
+            {
+                "HourPeriod": "11",
+                "Total": 10
+            },
+            {
+                "HourPeriod": "12",
+                "Total": 11
+            },
+            {
+                "HourPeriod": "13",
+                "Total": 7
+            },
+            {
+                "HourPeriod": "14",
+                "Total": 12
+            },
+            {
+                "HourPeriod": "15",
+                "Total": 12
+            },
+            {
+                "HourPeriod": "16",
+                "Total": null
+            },
+            {
+                "HourPeriod": "17",
+                "Total": null
+            },
+            {
+                "HourPeriod": "18",
+                "Total": null
+            },
+            {
+                "HourPeriod": "19",
+                "Total": null
+            },
+            {
+                "HourPeriod": "20",
+                "Total": null
+            },
+            {
+                "HourPeriod": "21",
+                "Total": null
+            },
+            {
+                "HourPeriod": "22",
+                "Total": null
+            },
+            {
+                "HourPeriod": "23",
+                "Total": null
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "HourPeriod": "00",
+            "Total": null
+        },
+        {
+            "HourPeriod": "01",
+            "Total": null
+        },
+        {
+            "HourPeriod": "02",
+            "Total": null
+        },
+        {
+            "HourPeriod": "03",
+            "Total": null
+        },
+        {
+            "HourPeriod": "04",
+            "Total": 27
+        },
+        {
+            "HourPeriod": "05",
+            "Total": null
+        },
+        {
+            "HourPeriod": "06",
+            "Total": null
+        },
+        {
+            "HourPeriod": "07",
+            "Total": 7
+        },
+        {
+            "HourPeriod": "08",
+            "Total": 10
+        },
+        {
+            "HourPeriod": "09",
+            "Total": 11
+        },
+        {
+            "HourPeriod": "10",
+            "Total": 13
+        },
+        {
+            "HourPeriod": "11",
+            "Total": 10
+        },
+        {
+            "HourPeriod": "12",
+            "Total": 11
+        },
+        {
+            "HourPeriod": "13",
+            "Total": 7
+        },
+        {
+            "HourPeriod": "14",
+            "Total": 12
+        },
+        {
+            "HourPeriod": "15",
+            "Total": 12
+        },
+        {
+            "HourPeriod": "16",
+            "Total": null
+        },
+        {
+            "HourPeriod": "17",
+            "Total": null
+        },
+        {
+            "HourPeriod": "18",
+            "Total": null
+        },
+        {
+            "HourPeriod": "19",
+            "Total": null
+        },
+        {
+            "HourPeriod": "20",
+            "Total": null
+        },
+        {
+            "HourPeriod": "21",
+            "Total": null
+        },
+        {
+            "HourPeriod": "22",
+            "Total": null
+        },
+        {
+            "HourPeriod": "23",
+            "Total": null
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        24
+    ]
+}sql::: >"select HourPeriod, sum(Call_Amount) as Calls from ( select HourPeriod, case when cd_status = 'Answered' then count(cd_status) else 0 end as [Call_Amount] from HourPeriods left join Call_details on (Datepart(Hour,CD_Time_Of_Call) = Hourval) and (cd_date = '2019/6/6') group by Datepart(Hour,CD_Time_Of_Call), cd_status, hourperiod ) as x group by hourperiod"callsPerhour::: >{
+    "recordsets": [
+        [
+            {
+                "HourPeriod": "00",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "01",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "02",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "03",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "04",
+                "Calls": 3
+            },
+            {
+                "HourPeriod": "05",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "06",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "07",
+                "Calls": 21
+            },
+            {
+                "HourPeriod": "08",
+                "Calls": 49
+            },
+            {
+                "HourPeriod": "09",
+                "Calls": 60
+            },
+            {
+                "HourPeriod": "10",
+                "Calls": 76
+            },
+            {
+                "HourPeriod": "11",
+                "Calls": 64
+            },
+            {
+                "HourPeriod": "12",
+                "Calls": 71
+            },
+            {
+                "HourPeriod": "13",
+                "Calls": 32
+            },
+            {
+                "HourPeriod": "14",
+                "Calls": 33
+            },
+            {
+                "HourPeriod": "15",
+                "Calls": 20
+            },
+            {
+                "HourPeriod": "16",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "17",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "18",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "19",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "20",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "21",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "22",
+                "Calls": 0
+            },
+            {
+                "HourPeriod": "23",
+                "Calls": 0
+            }
+        ]
+    ],
+    "recordset": [
+        {
+            "HourPeriod": "00",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "01",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "02",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "03",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "04",
+            "Calls": 3
+        },
+        {
+            "HourPeriod": "05",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "06",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "07",
+            "Calls": 21
+        },
+        {
+            "HourPeriod": "08",
+            "Calls": 49
+        },
+        {
+            "HourPeriod": "09",
+            "Calls": 60
+        },
+        {
+            "HourPeriod": "10",
+            "Calls": 76
+        },
+        {
+            "HourPeriod": "11",
+            "Calls": 64
+        },
+        {
+            "HourPeriod": "12",
+            "Calls": 71
+        },
+        {
+            "HourPeriod": "13",
+            "Calls": 32
+        },
+        {
+            "HourPeriod": "14",
+            "Calls": 33
+        },
+        {
+            "HourPeriod": "15",
+            "Calls": 20
+        },
+        {
+            "HourPeriod": "16",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "17",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "18",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "19",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "20",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "21",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "22",
+            "Calls": 0
+        },
+        {
+            "HourPeriod": "23",
+            "Calls": 0
+        }
+    ],
+    "output": {},
+    "rowsAffected": [
+        24
+    ]
+}

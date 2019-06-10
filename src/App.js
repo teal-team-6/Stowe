@@ -5,23 +5,17 @@ import Loadable from 'react-loadable';
 import './App.scss';
 
 const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
-const orchestration = { data:[1,2,3,4,5,6,7]};
+
 // Containers
 const DefaultLayout = Loadable({
   loader: () => import('./containers/DefaultLayout'),
   loading
 });
 
-const StoweLayout = Loadable({
-  loader: () => import('./containers/StoweLayout'),
-  loading,
-  orchestration
-});
-
 // Pages
 const Login = Loadable({
   loader: () => import('./views/Pages/Login'),
-  loading,
+  loading
 });
 
 const Register = Loadable({
@@ -49,7 +43,7 @@ class App extends Component {
             <Route exact path="/register" name="Register Page" component={Register} />
             <Route exact path="/404" name="Page 404" component={Page404} />
             <Route exact path="/500" name="Page 500" component={Page500} />
-            <Route path="/" name="Home" component={StoweLayout} />
+            <Route path="/" name="Home" component={DefaultLayout} />
           </Switch>
       </HashRouter>
     );
