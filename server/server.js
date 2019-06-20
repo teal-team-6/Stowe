@@ -216,7 +216,6 @@ async function getHeaderData() {
 
 
     return headerDataSet;
-
     // return headerData;
 };
 

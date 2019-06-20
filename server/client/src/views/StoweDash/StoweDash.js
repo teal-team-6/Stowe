@@ -369,92 +369,92 @@ function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-var elements = 27;
-var data1 = [];
-var data2 = [];
-var data3 = [];
+// var elements = 27;
+// var data1 = [];
+// var data2 = [];
+// var data3 = [];
 
-for (var i = 0; i <= elements; i++) {
-  data1.push(random(50, 200));
-  data2.push(random(80, 100));
-  data3.push(65);
-}
+// for (var i = 0; i <= elements; i++) {
+//   data1.push(random(50, 200));
+//   data2.push(random(80, 100));
+//   data3.push(65);
+// }
 
-const mainChart = {
-  labels: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: hexToRgba(brandInfo, 10),
-      borderColor: brandInfo,
-      pointHoverBackgroundColor: '#fff',
-      borderWidth: 2,
-      data: data1,
-    },
-    {
-      label: 'My Second dataset',
-      backgroundColor: 'transparent',
-      borderColor: brandSuccess,
-      pointHoverBackgroundColor: '#fff',
-      borderWidth: 2,
-      data: data2,
-    },
-    {
-      label: 'My Third dataset',
-      backgroundColor: 'transparent',
-      borderColor: brandDanger,
-      pointHoverBackgroundColor: '#fff',
-      borderWidth: 1,
-      borderDash: [8, 5],
-      data: data3,
-    },
-  ],
-};
+// const mainChart = {
+//   labels: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
+//   datasets: [
+//     {
+//       label: 'My First dataset',
+//       backgroundColor: hexToRgba(brandInfo, 10),
+//       borderColor: brandInfo,
+//       pointHoverBackgroundColor: '#fff',
+//       borderWidth: 2,
+//       data: data1,
+//     },
+//     {
+//       label: 'My Second dataset',
+//       backgroundColor: 'transparent',
+//       borderColor: brandSuccess,
+//       pointHoverBackgroundColor: '#fff',
+//       borderWidth: 2,
+//       data: data2,
+//     },
+//     {
+//       label: 'My Third dataset',
+//       backgroundColor: 'transparent',
+//       borderColor: brandDanger,
+//       pointHoverBackgroundColor: '#fff',
+//       borderWidth: 1,
+//       borderDash: [8, 5],
+//       data: data3,
+//     },
+//   ],
+// };
 
-let CallsPerHourbar = {
-  labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
-  datasets: [
-    {
-      label: 'Calls Per Hour',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [0, 0, 0, 0, 0, 0, 34, 49, 50, 81, 56, 75, 40, 34, 54, 23, 0, 0, 0, 0],
-    },
-  ],
-};
+// let CallsPerHourbar = {
+//   labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+//   datasets: [
+//     {
+//       label: 'Calls Per Hour',
+//       backgroundColor: 'rgba(255,99,132,0.2)',
+//       borderColor: 'rgba(255,99,132,1)',
+//       borderWidth: 1,
+//       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+//       hoverBorderColor: 'rgba(255,99,132,1)',
+//       data: [0, 0, 0, 0, 0, 0, 34, 49, 50, 81, 56, 75, 40, 34, 54, 23, 0, 0, 0, 0],
+//     },
+//   ],
+// };
 
-let AvgRingTimePerHour = {
-  labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
-  datasets: [
-    {
-      label: 'Ring Time Per Hour',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [0, 0, 0, 0, 0, 0, 34, 49, 50, 81, 56, 75, 40, 34, 54, 23, 0, 0, 0, 100],
-    },
-  ],
-};
+// let AvgRingTimePerHour = {
+//   labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+//   datasets: [
+//     {
+//       label: 'Ring Time Per Hour',
+//       backgroundColor: 'rgba(255,99,132,0.2)',
+//       borderColor: 'rgba(255,99,132,1)',
+//       borderWidth: 1,
+//       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+//       hoverBorderColor: 'rgba(255,99,132,1)',
+//       data: [0, 0, 0, 0, 0, 0, 34, 49, 50, 81, 56, 75, 40, 34, 54, 23, 0, 0, 0, 100],
+//     },
+//   ],
+// };
 
-const CallsPerAgent = {
-  labels: ['Shea Slinger', 'Curwin', 'Meagan', 'Damskey', 'Snazo', 'Sulaiman', 'Dillon', 'Lona', 'Angela Hitchcock', 'Phumeza', 'Yanga', 'Rudolph', 'Slyanda', 'Charl'],
-  datasets: [
-    {
-      label: 'Total Calls Per Agent',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [34, 21, 23, 4, 37, 11, 10, 22, 2, 39, 24, 3, 16, 20],
-    },
-  ],
-};
+// const CallsPerAgent = {
+//   labels: ['Shea Slinger', 'Curwin', 'Meagan', 'Damskey', 'Snazo', 'Sulaiman', 'Dillon', 'Lona', 'Angela Hitchcock', 'Phumeza', 'Yanga', 'Rudolph', 'Slyanda', 'Charl'],
+//   datasets: [
+//     {
+//       label: 'Total Calls Per Agent',
+//       backgroundColor: 'rgba(255,99,132,0.2)',
+//       borderColor: 'rgba(255,99,132,1)',
+//       borderWidth: 1,
+//       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+//       hoverBorderColor: 'rgba(255,99,132,1)',
+//       data: [34, 21, 23, 4, 37, 11, 10, 22, 2, 39, 24, 3, 16, 20],
+//     },
+//   ],
+// };
 
 const options = {
   tooltips: {
@@ -555,6 +555,7 @@ class StoweDash extends Component {
   }
 
   async getHeaderData() {
+    let hasFailed = false;
     let headerData = {
       incoming: null,
       outgoing: null,
@@ -577,14 +578,12 @@ class StoweDash extends Component {
             status: response.status
           }
           )).then(res => {
-            if (res.data.status >= 200) {
-              headerData.incoming = res.data.data.recordset[0].Incomming;
-            } else {
-              console.log('no data returned headerData.incoming');
-            }
-
+            headerData.incoming = res.data.data.recordset[0].Incomming;
           })
-      ),
+      ).catch((err)=> {
+        hasFailed = true;
+        console.log('getIncoming has err : >', err)
+      }),
       await fetch('api/getInque', {
         accept: "application/json",
         method: "GET",
@@ -598,13 +597,13 @@ class StoweDash extends Component {
             status: response.status
           }
           )).then(res => {
-            if (res.data.status >= 200) {
-              headerData.inQ = res.data.data.recordset[0].In_Que;
-            } else {
-              console.log('no data returned headerData.inQ');
-            }
+            headerData.inQ = res.data.data.recordset[0].In_Que;
           })
-      ),
+      )
+      .catch((err)=> {
+        hasFailed = true;
+        console.log('getInque has err : >', err)
+      }),
       await fetch('api/getOutgoing', {
         accept: "application/json",
         method: "GET",
@@ -618,13 +617,13 @@ class StoweDash extends Component {
             status: response.status
           }
           )).then(res => {
-            if (res.data.status >= 200) {
-              headerData.outgoing = res.data.data.recordset[0].Outgoing;
-            } else {
-              console.log('no data returned headerData.outgoing');
-            }
+            headerData.outgoing = res.data.data.recordset[0].Outgoing;
           })
-      ),
+      )
+      .catch((err)=> {
+        hasFailed = true;
+        console.log('getOutgoing has err : >', err)
+      }),
       await fetch('api/getAbandoned', {
         accept: "application/json",
         method: "GET",
@@ -638,14 +637,13 @@ class StoweDash extends Component {
             status: response.status
           }
           )).then(res => {
-            if (res.data.status >= 200) {
-              headerData.abandoned = res.data.data.recordset[0].Abandoned;
-            }
-            else {
-              console.log('no data returned headerData.abandoned');
-            }
+            headerData.abandoned = res.data.data.recordset[0].Abandoned;
           })
-      ),
+      )
+      .catch((err)=> {
+        hasFailed = true;
+        console.log('getAbandoned has err : >', err)
+      }),
       await fetch('api/getNoAnswer', {
         accept: "application/json",
         method: "GET",
@@ -659,27 +657,43 @@ class StoweDash extends Component {
             status: response.status
           }
           )).then(res => {
-            if (res.data.status >= 200) {
-              headerData.noAnswer = res.data.data.recordset[0].Ring_No_Answer;
-            } else {
-              console.log('no data returned  headerData.noAnswer');
-            }
+            headerData.noAnswer = res.data.data.recordset[0].Ring_No_Answer;
           })
-      )
+      ).catch((err)=> {
+        hasFailed = true;
+        console.log('getNoAnswer has err : >', err)
+      })
     ];
-    return await Promise.all(promises)
+
+    await Promise.all(promises)
       .then(data => {
-        this.setState({
-          incomingCalls: headerData.incoming,
-          inQue: headerData.inQ,
+        console.log({
+          incoming: headerData.incoming, 
+          inQ:headerData.inQ,
           outgoing: headerData.outgoing,
           noAnswer: headerData.noAnswer,
-          abandoned: headerData.abandoned,
-        });
-      }).catch((err) => { console.log('err', err) });
+          abandoned:headerData.abandoned 
+         })
+        if( headerData.incoming !== null  && headerData.inQ  !== null&& headerData.outgoing!== null && headerData.noAnswer!== null && headerData.abandoned!== null){
+          console.log('setting heading data state');
+            this.setState({
+              incomingCalls: headerData.incoming,
+              inQue: headerData.inQ,
+              outgoing: headerData.outgoing,
+              noAnswer: headerData.noAnswer,
+              abandoned: headerData.abandoned,
+            });
+        }
+      }).catch((err)=> {
+        hasFailed = true;
+        console.log('getheader promise has err : >', err)
+      })
+      console.log('hasFailed ==>',hasFailed);
+    return headerData;
   }
 
   async getHourlyData() {
+    let hasFailed = false;
     let hourlydata = {
       agentCallsPerHour: null,
       avgRingTime: null,
@@ -698,14 +712,12 @@ class StoweDash extends Component {
             status: response.status
           }
           )).then(res => {
-            if (res.data.status >= 200) {
-              hourlydata.agentCallsPerHour = res.data.data.recordset;
-            }
-            else {
-              console.log('error no data  hourlydata.agentCallsPerHour ');
-            }
+            hourlydata.agentCallsPerHour = res.data.data.recordset;
           })
-      ),
+      ).catch((err)=> {
+        hasFailed = true;
+        console.log('agentCallsPerHour has err : >', err)
+      }),
       await fetch('api/avgRingTime', {
         accept: "application/json",
         method: "GET",
@@ -719,186 +731,200 @@ class StoweDash extends Component {
             status: response.status
           }
           )).then(res => {
-            if (res.data.status >= 200) {
-              hourlydata.avgRingTime = res.data.data.recordset;
-            }
-            else {
-              console.log('error no data  hourlydata.avgRingTime ');
-            }
+            hourlydata.avgRingTime = res.data.data.recordset;
           })
-      ),
+      ).catch((err)=> {
+        hasFailed = true;
+        console.log('avgRingTime has err : >', err)
+      }),
     ]
-    return await Promise.all(promises)
+    await Promise.all(promises)
       .then(data => {
-        console.log('data : ',data);
-        if (data) {
-          const objPerHr = hourlydata.agentCallsPerHour;
-          const objRingPerHr = hourlydata.avgRingTime;
+        const objPerHr = hourlydata.agentCallsPerHour;
+        const objRingPerHr = hourlydata.avgRingTime;
+        if(objPerHr !== null && objPerHr[0] !== null && objRingPerHr !== null && objRingPerHr[0] !== null){
+        
 
-          let CallsPerHourbar = {
-            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
-            datasets: [
-              {
-                label: 'Calls Per Hour',
-                backgroundColor: 'rgba(255,99,132,0.2)',
-                borderColor: 'rgba(255,99,132,1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                hoverBorderColor: 'rgba(255,99,132,1)',
-                data: [
-                  objPerHr[0].Calls, objPerHr[1].Calls, objPerHr[2].Calls,
-                  objPerHr[3].Calls, objPerHr[4].Calls, objPerHr[5].Calls, objPerHr[6].Calls, objPerHr[7].Calls,
-                  objPerHr[8].Calls, objPerHr[9].Calls, objPerHr[10].Calls, objPerHr[11].Calls, objPerHr[12].Calls,
-                  objPerHr[13].Calls, objPerHr[14].Calls, objPerHr[15].Calls, objPerHr[16].Calls, objPerHr[17].Calls,
-                  objPerHr[18].Calls, objPerHr[19].Calls, objPerHr[20].Calls, objPerHr[21].Calls, objPerHr[22].Calls, objPerHr[23].Calls]
-              },
-            ],
-          };
+        let CallsPerHourbar = {
+          labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+          datasets: [
+            {
+              label: 'Calls Per Hour',
+              backgroundColor: 'rgba(255,99,132,0.2)',
+              borderColor: 'rgba(255,99,132,1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+              hoverBorderColor: 'rgba(255,99,132,1)',
+              data: [
+                objPerHr[0].Calls, objPerHr[1].Calls, objPerHr[2].Calls,
+                objPerHr[3].Calls, objPerHr[4].Calls, objPerHr[5].Calls, objPerHr[6].Calls, objPerHr[7].Calls,
+                objPerHr[8].Calls, objPerHr[9].Calls, objPerHr[10].Calls, objPerHr[11].Calls, objPerHr[12].Calls,
+                objPerHr[13].Calls, objPerHr[14].Calls, objPerHr[15].Calls, objPerHr[16].Calls, objPerHr[17].Calls,
+                objPerHr[18].Calls, objPerHr[19].Calls, objPerHr[20].Calls, objPerHr[21].Calls, objPerHr[22].Calls, objPerHr[23].Calls]
+            },
+          ],
+        };
 
-          let AvgRingTimePerHour = {
-            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
-            datasets: [
-              {
-                label: 'Ring Time Per Hour',
-                backgroundColor: 'rgba(255,99,132,0.2)',
-                borderColor: 'rgba(255,99,132,1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                hoverBorderColor: 'rgba(255,99,132,1)',
-                data: [
-                  objRingPerHr[0].Total, objRingPerHr[1].Total, objRingPerHr[2].Total,
-                  objRingPerHr[3].Total, objRingPerHr[4].Total, objRingPerHr[5].Total, objRingPerHr[6].Total, objRingPerHr[7].Total,
-                  objRingPerHr[8].Total, objRingPerHr[9].Total, objRingPerHr[10].Total, objRingPerHr[11].Total, objRingPerHr[12].Total,
-                  objRingPerHr[13].Total, objRingPerHr[14].Total, objRingPerHr[15].Total, objRingPerHr[16].Total, objRingPerHr[17].Total,
-                  objRingPerHr[18].Total, objRingPerHr[19].Total, objRingPerHr[20].Total, objRingPerHr[21].Total, objRingPerHr[22].Total, objRingPerHr[23].Total],
-              },
-            ],
-          };
+        let AvgRingTimePerHour = {
+          labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+          datasets: [
+            {
+              label: 'Ring Time Per Hour',
+              backgroundColor: 'rgba(255,99,132,0.2)',
+              borderColor: 'rgba(255,99,132,1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+              hoverBorderColor: 'rgba(255,99,132,1)',
+              data: [
+                objRingPerHr[0].Total, objRingPerHr[1].Total, objRingPerHr[2].Total,
+                objRingPerHr[3].Total, objRingPerHr[4].Total, objRingPerHr[5].Total, objRingPerHr[6].Total, objRingPerHr[7].Total,
+                objRingPerHr[8].Total, objRingPerHr[9].Total, objRingPerHr[10].Total, objRingPerHr[11].Total, objRingPerHr[12].Total,
+                objRingPerHr[13].Total, objRingPerHr[14].Total, objRingPerHr[15].Total, objRingPerHr[16].Total, objRingPerHr[17].Total,
+                objRingPerHr[18].Total, objRingPerHr[19].Total, objRingPerHr[20].Total, objRingPerHr[21].Total, objRingPerHr[22].Total, objRingPerHr[23].Total],
+            },
+          ],
+        };
+        
           this.setState({
             callsPerHour: CallsPerHourbar,
             avgRingTimePerHour: AvgRingTimePerHour
           });
-        } else {
-          console.log('no data: objPerHr  && objRingPerHr ')
         }
-
-      }).catch((err) => { console.log('err', err) });
+      }).catch((err)=> {
+        hasFailed = true;
+        console.log('getHourlyData promise has err : >', err)
+      });
+      console.log('getHourlyData promise = ',hasFailed)
+      return hourlydata;
   }
 
   async getAgentData() {
+    let hasError = false;
     let objReturn = {
       agentdata: null,
       callperagent: null,
     }
     let promises = [
-      await fetch('api/getAgentData', {
-        accept: "application/json",
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }).then(response =>
-        response.json().then(data => ({
-          data: data,
-          status: response.status
-        })
-        ).then(res => {
-          if (res.data.status >= 200) {
-            console.log('res for agent data:>', res);
-            objReturn.agentdata = res.data.data.recordset;
-          }
-          else {
-            console.log('no data objReturn.agentdata');
-          }
-        })),
-      await fetch('api/getAgentData', {
-        accept: "application/json",
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }).then(response =>
-        response.json().then(data => ({
-          data: data,
-          status: response.status
-        })
-        ).then(res => {
-          console.log(res);
-          if (res.data.status >= 200) {
-            console.log('res for agent data:>', res);
-            let names = Object.keys(res.data.data.recordset).map((k, i) => { return res.data.data.recordset[k].A_Name });
-            let data = Object.keys(res.data.data.recordset).map((k, i) => { return res.data.data.recordset[k].All_Calls });
-
-            objReturn.callperagent = {
-              labels: names,
-              datasets: [
-                {
-                  label: 'Total Calls Per Agent',
-                  backgroundColor: 'rgba(255,99,132,0.2)',
-                  borderColor: 'rgba(255,99,132,1)',
-                  borderWidth: 1,
-                  hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                  hoverBorderColor: 'rgba(255,99,132,1)',
-                  data: data,
-                },
-              ],
-            };
-          } else {
-            console.log('no data :objReturn.callperagent')
-          }
-        }))
-
-    ];
-    let grouped
-    if(objReturn.agentdata){
-      grouped = groupBy(objReturn.agentdata, 'Q_Name');
-    }
      
+      await fetch('api/getAgentData', {
+        accept: "application/json",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(response =>
+        response.json().then(data => ({
+          data: data,
+          status: response.status
+        })
+        ).then(res => {
+          objReturn.agentdata = res.data.data.recordset;
+          console.log('res for agent data:>', res);
+          let names = Object.keys(res.data.data.recordset).map((k, i) => { return res.data.data.recordset[k].A_Name });
+          let data = Object.keys(res.data.data.recordset).map((k, i) => { return res.data.data.recordset[k].All_Calls });
 
+          objReturn.callperagent = {
+            labels: names,
+            datasets: [
+              {
+                label: 'Total Calls Per Agent',
+                backgroundColor: 'rgba(255,99,132,0.2)',
+                borderColor: 'rgba(255,99,132,1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                hoverBorderColor: 'rgba(255,99,132,1)',
+                data: data,
+              },
+            ],
+          };
 
-    return await Promise.all(promises)
+        })).catch((err)=> {
+          hasError = true;
+          console.log('getAgentData 2nd has err : >', err)
+        })
+    ];
+
+    console.log('objReturn.agentdata',objReturn.agentdata);
+    console.log('objReturn.callperagent',objReturn.callperagent);
+    
+   
+
+    await Promise.all(promises)
       .then(data => {
-        this.setState({
-          agentData: grouped,
-          callsPerAgent: objReturn.callperagent,
-        });
-      }).catch((err) => { console.log('err', err) });
+         if(objReturn.agentdata !== null && objReturn.callperagent !== null ){
+          let grouped = groupBy(objReturn.agentdata, 'Q_Name');
+          this.setState({
+            agentData: grouped,
+            callsPerAgent: objReturn.callperagent,
+          });
+         }
+      
+      }).catch((err)=> {
+        hasError = true;
+        console.log('getAgentData 2nd promise has err : >', err)
+      });
+
+      console.log('getAgentData has error ',hasError);
+    return objReturn;
   }
 
   async fetchHeaderData() {
     // get header data per second
-    setTimeout(async function () {
+    setInterval(async function () {
+      console.log('get header Data');
       let data = await this.getHeaderData();
-      this.fetchHeaderData();
-    }.bind(this), 1000);
+      console.log('awaited header data : ',data );
+
+      console.log('get header Data Done');
+
+    //  this.fetchHeaderData();
+    }.bind(this), 5000);
   }
 
   async fetchHourlyData() {
     // get hourly data
-    setTimeout(async function () {
+    setInterval(async function () {
+
+      console.log('get hourly data');
       let data = await this.getHourlyData();
-      this.fetchHourlyData();
-    }.bind(this), 1000);
+      console.log('awaited hourly  data : ',data );
+      console.log('got hourly data');
+
+      //this.fetchHourlyData();
+    }.bind(this), 10000);
   }
 
   fetchAgentData() {
     // get hourly data
-    setTimeout(async function () {
+    setInterval(async function () {
+      console.log('get agent data');
       let data = await this.getAgentData();
-
-      this.fetchAgentData();
-    }.bind(this), 3600000);
+      console.log('awaited agent data : ',data );
+      console.log('got agent data');
+      //this.fetchAgentData();
+    }.bind(this), 15000);
   }
 
   async initializeData() {
     // setup initial data calls
+    console.log('initializeData');
     this.fetchHeaderData();
     this.fetchHourlyData();
     this.fetchAgentData();
+    console.log('initializeData Done');
 
+    console.log('getting getAgentData');
     await this.getAgentData();
+    console.log('getting getAgentData Done');
+
+    console.log('getting getHourlyData');
     await this.getHourlyData();
+    console.log('getting getHourlyData Done');
+    
+    console.log('getting fetchAgentData');
     await this.fetchAgentData();
+    console.log('getting fetchAgentData Done');
+
   }
 
 
@@ -922,59 +948,65 @@ class StoweDash extends Component {
 
   render() {
     return (
-      <div className="animated fadeIn">
+
+      <div className="animated fadeIn" >
+        <div style={{paddingTop:'10px'}}></div>
+
         <Row>
+        
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-success">
-              <CardBody className="pb-0">
-                <div className="text-value" style={{ fontSize: 54 }}> {this.state.incomingCalls}</div>
-                <div style={{ textAlign: 'right', fontSize: 20 }}> Incoming Calls</div>
+            <Card className="text-white bg-success cardOverwirte flexBox">
+              <CardBody className="pb-0 cardbodyOverwrite">
+                <div className="text-value" style={{ fontSize: 100, paddingTop: '10px' }}> {this.state.incomingCalls}</div>
               </CardBody>
               <div className="chart-wrapper" style={{ height: '70px' }}>
+              <div style={{ fontSize: 27, paddingTop:'30px'}}> Incoming Calls</div>
               </div>
             </Card>
           </Col>
 
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-danger">
-              <CardBody className="pb-0">
-                <div className="text-value" style={{ fontSize: 54 }}>{this.state.noAnswer}</div>
+            <Card className="text-white bg-danger cardOverwirte flexBox">
+              <CardBody className="pb-0 cardbodyOverwrite">
+                <div className="text-value" style={{ fontSize: 100 , paddingTop: '10px'}}>{this.state.noAnswer}</div>
 
-                <div style={{ textAlign: 'right', fontSize: 20 }}>Ring No Answer</div>
+                
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
+              <div style={{  fontSize: 27, paddingTop:'30px' }}>Ring No Answer</div>
               </div>
             </Card>
           </Col>
 
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-danger">
-              <CardBody className="pb-0">
-                <div className="text-value" style={{ fontSize: 54 }}>{this.state.abandoned}</div>
-                <div style={{ textAlign: 'right', fontSize: 20 }}>Abandoned Calls</div>
+            <Card className="text-white bg-danger cardOverwirte flexBox">
+              <CardBody className="pb-0 cardbodyOverwrite">
+                <div className="text-value" style={{ fontSize: 100 , paddingTop: '10px'}}>{this.state.abandoned}</div>
               </CardBody>
               <div className="chart-wrapper" style={{ height: '70px' }}>
+              <div style={{ fontSize: 27 , paddingTop:'30px'}}>Abandoned Calls</div>
               </div>
             </Card>
           </Col>
 
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-primary">
-              <CardBody className="pb-0">
-                <div className="text-value" style={{ fontSize: 54 }}>{this.state.outgoing}</div>
-                <div style={{ textAlign: 'right', fontSize: 20 }}>Outgoing Calls</div>
+            <Card className="text-white bg-primary cardOverwirte flexBox">
+              <CardBody className="pb-0 cardbodyOverwrite">
+                <div className="text-value" style={{ fontSize: 100, paddingTop: '10px' }}>{this.state.outgoing}</div>
+               
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
+              <div style={{  fontSize: 27, paddingTop:'30px' }}>Outgoing Calls</div>
               </div>
             </Card>
           </Col>
         </Row> <Row>
           <Col xs="12" sm="6" lg="6">
-            <Card>
+            <Card className="cardOverwirte">
               <CardHeader>
                 Amount Of Calls per Hour
               </CardHeader>
-              <CardBody>
+              <CardBody className="cardbodyOverwrite">
                 <div className="chart-wrapper">
                   {
                     this.state.callsPerHour && <Bar data={this.state.callsPerHour} options={options} />
@@ -987,7 +1019,7 @@ class StoweDash extends Component {
               <CardHeader>
                 Average Ring Time Per Hour
               </CardHeader>
-              <CardBody>
+              <CardBody className="cardbodyOverwrite">
                 <div className="chart-wrapper">
                   {
                     this.state.avgRingTimePerHour && <Bar data={this.state.avgRingTimePerHour} options={options} />
@@ -997,10 +1029,10 @@ class StoweDash extends Component {
             </Card>
           </Col>
           <Col xs="12" sm="6" lg="6">
-            <Card>
+            <Card className="cardOverwirte">
               <CardHeader>
                 Agent Queue Statistics
-            </CardHeader><CardBody>
+            </CardHeader><CardBody className="cardbodyOverwrite">
                 <Table responsive>
                   <thead>
                     <tr>
@@ -1069,11 +1101,11 @@ class StoweDash extends Component {
             </Card>
           </Col>
         </Row>
-        <Row> <Col xs="12" sm="12" lg="12"><Card>
+        <Row> <Col xs="12" sm="12" lg="12"><Card className="cardOverwirte">
           <CardHeader>
             All Calls Per Agent
               </CardHeader>
-          <CardBody>
+          <CardBody className="cardbodyOverwrite">
             <div className="chart-wrapper">
               {
                 this.state.callsPerAgent && <Bar data={this.state.callsPerAgent} options={options} />
