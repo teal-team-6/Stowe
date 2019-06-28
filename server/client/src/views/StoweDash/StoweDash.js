@@ -582,7 +582,7 @@ class StoweDash extends Component {
           })
       ).catch((err)=> {
         hasFailed = true;
-        console.log('getIncoming has err : >', err)
+       //console.log('getIncoming has err : >', err)
       }),
       await fetch('api/getInque', {
         accept: "application/json",
@@ -602,7 +602,7 @@ class StoweDash extends Component {
       )
       .catch((err)=> {
         hasFailed = true;
-        console.log('getInque has err : >', err)
+        //console.log('getInque has err : >', err)
       }),
       await fetch('api/getOutgoing', {
         accept: "application/json",
@@ -622,7 +622,7 @@ class StoweDash extends Component {
       )
       .catch((err)=> {
         hasFailed = true;
-        console.log('getOutgoing has err : >', err)
+        //console.log('getOutgoing has err : >', err)
       }),
       await fetch('api/getAbandoned', {
         accept: "application/json",
@@ -642,7 +642,7 @@ class StoweDash extends Component {
       )
       .catch((err)=> {
         hasFailed = true;
-        console.log('getAbandoned has err : >', err)
+        //console.log('getAbandoned has err : >', err)
       }),
       await fetch('api/getNoAnswer', {
         accept: "application/json",
@@ -661,21 +661,21 @@ class StoweDash extends Component {
           })
       ).catch((err)=> {
         hasFailed = true;
-        console.log('getNoAnswer has err : >', err)
+        //console.log('getNoAnswer has err : >', err)
       })
     ];
 
     await Promise.all(promises)
       .then(data => {
-        console.log({
-          incoming: headerData.incoming, 
-          inQ:headerData.inQ,
-          outgoing: headerData.outgoing,
-          noAnswer: headerData.noAnswer,
-          abandoned:headerData.abandoned 
-         })
+       // console.log({
+        ///  incoming: headerData.incoming, 
+        ///  inQ:headerData.inQ,
+         // outgoing: headerData.outgoing,
+         // noAnswer: headerData.noAnswer,
+        //  abandoned:headerData.abandoned 
+        // })
         if( headerData.incoming !== null  && headerData.inQ  !== null&& headerData.outgoing!== null && headerData.noAnswer!== null && headerData.abandoned!== null){
-          console.log('setting heading data state');
+         // console.log('setting heading data state');
             this.setState({
               incomingCalls: headerData.incoming,
               inQue: headerData.inQ,
@@ -686,9 +686,9 @@ class StoweDash extends Component {
         }
       }).catch((err)=> {
         hasFailed = true;
-        console.log('getheader promise has err : >', err)
+       // console.log('getheader promise has err : >', err)
       })
-      console.log('hasFailed ==>',hasFailed);
+     // console.log('hasFailed ==>',hasFailed);
     return headerData;
   }
 
@@ -716,7 +716,7 @@ class StoweDash extends Component {
           })
       ).catch((err)=> {
         hasFailed = true;
-        console.log('agentCallsPerHour has err : >', err)
+        //console.log('agentCallsPerHour has err : >', err)
       }),
       await fetch('api/avgRingTime', {
         accept: "application/json",
@@ -735,7 +735,7 @@ class StoweDash extends Component {
           })
       ).catch((err)=> {
         hasFailed = true;
-        console.log('avgRingTime has err : >', err)
+      //  console.log('avgRingTime has err : >', err)
       }),
     ]
     await Promise.all(promises)
@@ -792,9 +792,9 @@ class StoweDash extends Component {
         }
       }).catch((err)=> {
         hasFailed = true;
-        console.log('getHourlyData promise has err : >', err)
+       // console.log('getHourlyData promise has err : >', err)
       });
-      console.log('getHourlyData promise = ',hasFailed)
+     // console.log('getHourlyData promise = ',hasFailed)
       return hourlydata;
   }
 
@@ -819,7 +819,7 @@ class StoweDash extends Component {
         })
         ).then(res => {
           objReturn.agentdata = res.data.data.recordset;
-          console.log('res for agent data:>', res);
+        //  console.log('res for agent data:>', res);
           let names = Object.keys(res.data.data.recordset).map((k, i) => { return res.data.data.recordset[k].A_Name });
           let data = Object.keys(res.data.data.recordset).map((k, i) => { return res.data.data.recordset[k].All_Calls });
 
@@ -844,10 +844,7 @@ class StoweDash extends Component {
         })
     ];
 
-    console.log('objReturn.agentdata',objReturn.agentdata);
-    console.log('objReturn.callperagent',objReturn.callperagent);
     
-   
 
     await Promise.all(promises)
       .then(data => {
@@ -864,66 +861,40 @@ class StoweDash extends Component {
         console.log('getAgentData 2nd promise has err : >', err)
       });
 
-      console.log('getAgentData has error ',hasError);
+  
     return objReturn;
   }
 
   async fetchHeaderData() {
     // get header data per second
     setInterval(async function () {
-      console.log('get header Data');
       let data = await this.getHeaderData();
-      console.log('awaited header data : ',data );
-
-      console.log('get header Data Done');
-
-    //  this.fetchHeaderData();
     }.bind(this), 5000);
   }
 
   async fetchHourlyData() {
     // get hourly data
     setInterval(async function () {
-
-      console.log('get hourly data');
       let data = await this.getHourlyData();
-      console.log('awaited hourly  data : ',data );
-      console.log('got hourly data');
-
-      //this.fetchHourlyData();
-    }.bind(this), 10000);
+    }.bind(this), 900000);
   }
 
   fetchAgentData() {
     // get hourly data
     setInterval(async function () {
-      console.log('get agent data');
       let data = await this.getAgentData();
-      console.log('awaited agent data : ',data );
-      console.log('got agent data');
-      //this.fetchAgentData();
-    }.bind(this), 15000);
+    }.bind(this), 900000);
   }
 
   async initializeData() {
     // setup initial data calls
-    console.log('initializeData');
     this.fetchHeaderData();
     this.fetchHourlyData();
     this.fetchAgentData();
-    console.log('initializeData Done');
 
-    console.log('getting getAgentData');
     await this.getAgentData();
-    console.log('getting getAgentData Done');
-
-    console.log('getting getHourlyData');
     await this.getHourlyData();
-    console.log('getting getHourlyData Done');
-    
-    console.log('getting fetchAgentData');
     await this.fetchAgentData();
-    console.log('getting fetchAgentData Done');
 
   }
 
@@ -957,7 +928,7 @@ class StoweDash extends Component {
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-success cardOverwirte flexBox">
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 100, paddingTop: '10px' }}> {this.state.incomingCalls}</div>
+                <div className="text-value" style={{ fontSize: 220, paddingTop: '10px' }}> {this.state.incomingCalls}</div>
               </CardBody>
               <div className="chart-wrapper" style={{ height: '70px' }}>
               <div style={{ fontSize: 27, paddingTop:'30px'}}> Incoming Calls</div>
@@ -968,7 +939,7 @@ class StoweDash extends Component {
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-danger cardOverwirte flexBox">
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 100 , paddingTop: '10px'}}>{this.state.noAnswer}</div>
+                <div className="text-value" style={{ fontSize: 220 , paddingTop: '10px'}}>{this.state.noAnswer}</div>
 
                 
               </CardBody>
@@ -981,7 +952,7 @@ class StoweDash extends Component {
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-danger cardOverwirte flexBox">
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 100 , paddingTop: '10px'}}>{this.state.abandoned}</div>
+                <div className="text-value" style={{ fontSize: 220 , paddingTop: '10px'}}>{this.state.abandoned}</div>
               </CardBody>
               <div className="chart-wrapper" style={{ height: '70px' }}>
               <div style={{ fontSize: 27 , paddingTop:'30px'}}>Abandoned Calls</div>
@@ -992,7 +963,7 @@ class StoweDash extends Component {
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-primary cardOverwirte flexBox">
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 100, paddingTop: '10px' }}>{this.state.outgoing}</div>
+                <div className="text-value" style={{ fontSize: 220, paddingTop: '10px' }}>{this.state.outgoing}</div>
                
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
@@ -1006,7 +977,7 @@ class StoweDash extends Component {
               <CardHeader>
                 Amount Of Calls per Hour
               </CardHeader>
-              <CardBody className="cardbodyOverwrite">
+              <CardBody >
                 <div className="chart-wrapper">
                   {
                     this.state.callsPerHour && <Bar data={this.state.callsPerHour} options={options} />
@@ -1015,11 +986,11 @@ class StoweDash extends Component {
                 </div>
               </CardBody>
             </Card>
-            <Card>
+            <Card className="cardOverwirte">
               <CardHeader>
                 Average Ring Time Per Hour
               </CardHeader>
-              <CardBody className="cardbodyOverwrite">
+              <CardBody >
                 <div className="chart-wrapper">
                   {
                     this.state.avgRingTimePerHour && <Bar data={this.state.avgRingTimePerHour} options={options} />
@@ -1027,6 +998,18 @@ class StoweDash extends Component {
                 </div>
               </CardBody>
             </Card>
+            <Card className="cardOverwirte" >
+          <CardHeader>
+            All Calls Per Agent
+                </CardHeader>
+            <CardBody >
+              <div className="chart-wrapper" height="">
+                {
+                  this.state.callsPerAgent && <Bar data={this.state.callsPerAgent} options={options} height={ '200px'} />
+                }
+              </div>
+          </CardBody>
+        </Card>
           </Col>
           <Col xs="12" sm="6" lg="6">
             <Card className="cardOverwirte">
@@ -1101,18 +1084,7 @@ class StoweDash extends Component {
             </Card>
           </Col>
         </Row>
-        <Row> <Col xs="12" sm="12" lg="12"><Card className="cardOverwirte">
-          <CardHeader>
-            All Calls Per Agent
-              </CardHeader>
-          <CardBody className="cardbodyOverwrite">
-            <div className="chart-wrapper">
-              {
-                this.state.callsPerAgent && <Bar data={this.state.callsPerAgent} options={options} />
-              }
-            </div>
-          </CardBody>
-        </Card>
+        <Row> <Col xs="12" sm="12" lg="12">
         </Col>
         </Row>
       </div >
