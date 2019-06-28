@@ -928,7 +928,7 @@ class StoweDash extends Component {
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-success cardOverwirte flexBox">
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 220, paddingTop: '10px' }}> {this.state.incomingCalls}</div>
+                <div className="text-value" style={{ fontSize: 170, paddingTop: '45px'  }}> {this.state.incomingCalls}</div>
               </CardBody>
               <div className="chart-wrapper" style={{ height: '70px' }}>
               <div style={{ fontSize: 27, paddingTop:'30px'}}> Incoming Calls</div>
@@ -939,7 +939,7 @@ class StoweDash extends Component {
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-danger cardOverwirte flexBox">
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 220 , paddingTop: '10px'}}>{this.state.noAnswer}</div>
+                <div className="text-value" style={{fontSize: 170, paddingTop: '45px' }}>{this.state.noAnswer}</div>
 
                 
               </CardBody>
@@ -952,7 +952,7 @@ class StoweDash extends Component {
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-danger cardOverwirte flexBox">
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 220 , paddingTop: '10px'}}>{this.state.abandoned}</div>
+                <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.abandoned}</div>
               </CardBody>
               <div className="chart-wrapper" style={{ height: '70px' }}>
               <div style={{ fontSize: 27 , paddingTop:'30px'}}>Abandoned Calls</div>
@@ -963,7 +963,7 @@ class StoweDash extends Component {
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-primary cardOverwirte flexBox">
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 220, paddingTop: '10px' }}>{this.state.outgoing}</div>
+                <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.outgoing}</div>
                
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
