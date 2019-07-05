@@ -22,42 +22,41 @@ let groupBy = function(xs, key) {
     return rv;
     }, {});
 };
+
 //Function to connect to database and execute query
 var  executeQuery = function(response, query){  
-    sql.close();           
-    sql.connect(config, function (err) {
-        if (err) {   
-                    console.log("Error while connecting database :- " + err);
-                    response.send(err);
-                 }
-                 else {
-                        // create Request object
-                        var request = new sql.Request();
-                        // query to the database
-                        request.query(query, function (err, result) {
-                          if (err) {
-                                     console.log("Error while querying database :- " + err);
-                                     response = {
-                                        "recordsets": [
-                                            
-                                                {
-                                                    "HourPeriod": "00",
-                                                    "Calls": 0
-                                                },
-                                            ]
-                                    }
-                                    response.send(result);
-                                    }
-                                    else
-                                    {
-                                        response.send({ data: result });
-                                    }
-                              });
-                      }
-     });           
+            sql.close();
+            sql.connect(config, function (err) {
+            if (err) {   
+                        console.log("Error while connecting database :- " + err);
+                        response.send(err);
+                     }
+                     else {
+                            // create Request object
+                            var request = new sql.Request();
+                            // query to the database
+                            request.query(query, function (err, result) {
+                              if (err) {
+                                         console.log("Error while querying database :- " + err);
+                                         response = {
+                                            "recordsets": [
+                                                
+                                                    {
+                                                        "HourPeriod": "00",
+                                                        "Calls": 0
+                                                    },
+                                                ]
+                                        }
+                                        response.send(result);
+                                        }
+                                        else
+                                        {
+                                            response.send({ data: result });
+                                        }
+                                  });
+                          }
+         });  
 }
-
-
 
 function safe(action, defaultResult) {
     try {
@@ -154,53 +153,7 @@ async function getHeaderData() {
             outgoing = recordset;
         });
 
-        //console.log('agentQueStats string::>  ',agentQueStats);
-        // request.query(agentQueStats, function (err, recordset) {
-        //     // if (err) console.log(err)
-
-        //     // send records as a response
-        //     res = recordset;
-        //     // fs.appendFile('dataset.txt', 'sql::: >' + JSON.stringify(agentQueStats, null, 4), function (err) {
-        //     //   //  if (err) throw err;
-        //     //     console.log('Saved!');
-        //     // });
-        //     // fs.appendFile('dataset.txt', 'agentQueStats::: >' + JSON.stringify(res, null, 4), function (err) {
-        //     //     if (err) throw err;
-        //     //     console.log('Saved!');
-        //     // });
-        // });
-
-
-        // request.query(callsPerhour, function (err, recordset) {
-        //     //if (err) console.log(err)
-
-        //     // send records as a response
-        //     res = recordset;
-        //     // fs.appendFile('dataset.txt', ' callsPerhour sql::: >' + JSON.stringify(callsPerhour, null, 4), function (err) {
-        //     //     // if (err) throw err;
-        //     //     console.log('Saved!');
-        //     // });
-        //     // fs.appendFile('dataset.txt', 'callsPerhour::: >' + JSON.stringify(res, null, 4), function (err) {
-        //     //     // if (err) throw err;
-        //     //     console.log('Saved!');
-        //     // });
-        // });
-
-
-        // request.query(avgRingTime, function (err, recordset) {
-        //     //if (err) console.log(err)
-
-        //     // send records as a response
-        //     res = recordset;
-        //     // fs.appendFile('dataset.txt', 'sql::: >' + JSON.stringify(avgRingTime, null, 4), function (err) {
-        //     //     if (err) throw err;
-        //     // });
-        //     // console.log('avgRingTime::: >', JSON.stringify(res, null, 4));
-        //     // fs.appendFile('dataset.txt', 'avgRingTime::: >' + JSON.stringify(res, null, 4), function (err) {
-        //     //     if (err) throw err;
-        //     //     console.log('Saved!');
-        //     // });
-        // });
+        
         const headerData = {
             incoming: safe(() => incoming.recordset[0].Incomming, null),
             inQue: safe(() => inQue.recordset[0].In_Que, null),
@@ -216,500 +169,8 @@ async function getHeaderData() {
 
 
     return headerDataSet;
-    // return headerData;
 };
 
-
-// function getHourlyData() {
-//     if(!testMode){
-//     var sql = require("mssql");
-
-//     // config for your database
-//     var config = {
-//         user: 'Developer',
-//         password: 'D3v3l0p3r!',
-//         server: 'SCWPSQL01.stowe.local',
-//         database: 'CCStatistics',
-//         port: 1433
-//     };
-
-//     let avgCallsPerHour = "Select Agent.A_Name, Queue_Groups.Q_Name, " +
-//         'Agent.A_Status, AC_Ring_No_Answer as Ring_No_Answer, ' +
-//         'AC_Taken as Answered_Calls, AC_Outbound as OutBound_Calls, ' +
-//         '(AC_Taken+AC_Outbound) as [All_Calls] ' +
-//         'from Agent_Calls_Details, Queue_Groups, Agent ' +
-//         'Where Agent.A_Group = Queue_Groups.Q_Code and ' +
-//         "Agent_Calls_Details.AC_Date = '" + formatted_date + "' " +
-//         'and agent.A_Code = AC_Agent_Code order by Q_Name asc';
-
-//     let avgRingTime = 'select HourPeriod, ' +
-//         "datepart(second,DATEADD(MS,Avg(datediff(ms,'00:00:00.000', CD_Ring_Time)),'00:00:00.000')) as [Total] " +
-//         'from HourPeriods ' +
-//         'Left Join Call_details on ' +
-//         "(Datepart(Hour,CD_Time_Of_Call) = HourVal) and cd_date = '" + formatted_date + "'  " +
-//         'group by HourPeriod';
-
-//     // connect to your database
-//     sql.connect(config, function (err) {
-
-//         request.query(avgCallsPerHour, function (err, recordset) {
-//             if (err) console.log(err)
-
-//             // send records as a response
-//             agentCallsPerHour = recordset;
-//             // fs.appendFile('dataset.txt', 'sql::: >' + JSON.stringify(avgCallsPerHour, null, 4), function (err) {
-//             //     if (err) throw err;
-//             // });
-
-//             // fs.appendFile('dataset.txt', 'avgCallsPerHour::: >' + JSON.stringify(res, null, 4), function (err) {
-//             //     if (err) throw err;
-//             //     console.log('Saved!');
-//             // });
-//         });
-
-//         request.query(avgRingTime, function (err, recordset) {
-//             if (err) console.log(err)
-
-//             // send records as a response
-//             avgRingTime = recordset;
-//             // fs.appendFile('dataset.txt', 'sql::: >' + JSON.stringify(avgRingTime, null, 4), function (err) {
-//             //     if (err) throw err;
-//             // });
-//             // console.log('avgRingTime::: >', JSON.stringify(res, null, 4));
-//             // fs.appendFile('dataset.txt', 'avgRingTime::: >' + JSON.stringify(res, null, 4), function (err) {
-//             //     if (err) throw err;
-//             //     console.log('Saved!');
-//             // });
-//         });
-//     });
-
-//     sql.close();
-
-//     const agentCallData = {
-//         agentCallsPerHour: agentCallsPerHour.recordset,
-//         avgRingTime: avgRingTime.recordset,
-//     };
-
-//     return agentCallData;
-// }else{
-//     let callsPerHour = {
-//         "recordsets": [
-//             [
-//                 {
-//                     "HourPeriod": "00",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "01",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "02",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "03",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "04",
-//                     "Calls": 3
-//                 },
-//                 {
-//                     "HourPeriod": "05",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "06",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "07",
-//                     "Calls": 21
-//                 },
-//                 {
-//                     "HourPeriod": "08",
-//                     "Calls": 49
-//                 },
-//                 {
-//                     "HourPeriod": "09",
-//                     "Calls": 60
-//                 },
-//                 {
-//                     "HourPeriod": "10",
-//                     "Calls": 76
-//                 },
-//                 {
-//                     "HourPeriod": "11",
-//                     "Calls": 64
-//                 },
-//                 {
-//                     "HourPeriod": "12",
-//                     "Calls": 71
-//                 },
-//                 {
-//                     "HourPeriod": "13",
-//                     "Calls": 32
-//                 },
-//                 {
-//                     "HourPeriod": "14",
-//                     "Calls": 33
-//                 },
-//                 {
-//                     "HourPeriod": "15",
-//                     "Calls": 20
-//                 },
-//                 {
-//                     "HourPeriod": "16",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "17",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "18",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "19",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "20",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "21",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "22",
-//                     "Calls": 0
-//                 },
-//                 {
-//                     "HourPeriod": "23",
-//                     "Calls": 0
-//                 }
-//             ]
-//         ],
-//         "recordset": [
-//             {
-//                 "HourPeriod": "00",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "01",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "02",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "03",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "04",
-//                 "Calls": 3
-//             },
-//             {
-//                 "HourPeriod": "05",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "06",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "07",
-//                 "Calls": 21
-//             },
-//             {
-//                 "HourPeriod": "08",
-//                 "Calls": 49
-//             },
-//             {
-//                 "HourPeriod": "09",
-//                 "Calls": 60
-//             },
-//             {
-//                 "HourPeriod": "10",
-//                 "Calls": 76
-//             },
-//             {
-//                 "HourPeriod": "11",
-//                 "Calls": 64
-//             },
-//             {
-//                 "HourPeriod": "12",
-//                 "Calls": 71
-//             },
-//             {
-//                 "HourPeriod": "13",
-//                 "Calls": 32
-//             },
-//             {
-//                 "HourPeriod": "14",
-//                 "Calls": 33
-//             },
-//             {
-//                 "HourPeriod": "15",
-//                 "Calls": 20
-//             },
-//             {
-//                 "HourPeriod": "16",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "17",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "18",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "19",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "20",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "21",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "22",
-//                 "Calls": 0
-//             },
-//             {
-//                 "HourPeriod": "23",
-//                 "Calls": 0
-//             }
-//         ],
-//         "output": {},
-//         "rowsAffected": [
-//             24
-//         ]
-//     }
-
-//     let avgRingtimePerHour = {
-//         "recordsets": [
-//             [
-//                 {
-//                     "HourPeriod": "00",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "01",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "02",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "03",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "04",
-//                     "Total": 27
-//                 },
-//                 {
-//                     "HourPeriod": "05",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "06",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "07",
-//                     "Total": 7
-//                 },
-//                 {
-//                     "HourPeriod": "08",
-//                     "Total": 10
-//                 },
-//                 {
-//                     "HourPeriod": "09",
-//                     "Total": 11
-//                 },
-//                 {
-//                     "HourPeriod": "10",
-//                     "Total": 13
-//                 },
-//                 {
-//                     "HourPeriod": "11",
-//                     "Total": 10
-//                 },
-//                 {
-//                     "HourPeriod": "12",
-//                     "Total": 11
-//                 },
-//                 {
-//                     "HourPeriod": "13",
-//                     "Total": 7
-//                 },
-//                 {
-//                     "HourPeriod": "14",
-//                     "Total": 12
-//                 },
-//                 {
-//                     "HourPeriod": "15",
-//                     "Total": 12
-//                 },
-//                 {
-//                     "HourPeriod": "16",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "17",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "18",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "19",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "20",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "21",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "22",
-//                     "Total": null
-//                 },
-//                 {
-//                     "HourPeriod": "23",
-//                     "Total": null
-//                 }
-//             ]
-//         ],
-//         "recordset": [
-//             {
-//                 "HourPeriod": "00",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "01",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "02",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "03",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "04",
-//                 "Total": 27
-//             },
-//             {
-//                 "HourPeriod": "05",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "06",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "07",
-//                 "Total": 7
-//             },
-//             {
-//                 "HourPeriod": "08",
-//                 "Total": 10
-//             },
-//             {
-//                 "HourPeriod": "09",
-//                 "Total": 11
-//             },
-//             {
-//                 "HourPeriod": "10",
-//                 "Total": 13
-//             },
-//             {
-//                 "HourPeriod": "11",
-//                 "Total": 10
-//             },
-//             {
-//                 "HourPeriod": "12",
-//                 "Total": 11
-//             },
-//             {
-//                 "HourPeriod": "13",
-//                 "Total": 7
-//             },
-//             {
-//                 "HourPeriod": "14",
-//                 "Total": 12
-//             },
-//             {
-//                 "HourPeriod": "15",
-//                 "Total": 12
-//             },
-//             {
-//                 "HourPeriod": "16",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "17",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "18",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "19",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "20",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "21",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "22",
-//                 "Total": null
-//             },
-//             {
-//                 "HourPeriod": "23",
-//                 "Total": null
-//             }
-//         ],
-//         "output": {},
-//         "rowsAffected": [
-//             24
-//         ]
-//     }
-
-//     let returnData = {
-//         agentCallsPerHour: callsPerHour.recordset,
-//         avgRingTime: avgRingtimePerHour.recordset,
-//     }
-//     console.log('retrn', returnData);
-//     return returnData;
-// }
-// }
 
 function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -1158,3 +619,4 @@ let noAnswer = "select SUM(ac_ring_no_answer) as Ring_No_Answer from Agent_Calls
 var server = app.listen(3001, function () {
     console.log(`Find the server at: http://localhost:${3001}/`);
 });
+

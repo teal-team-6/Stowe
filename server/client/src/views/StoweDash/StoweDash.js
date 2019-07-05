@@ -682,7 +682,7 @@ class StoweDash extends Component {
           datasets: [
             {
               label: 'Calls Per Hour',
-              backgroundColor: 'rgba(255,99,132,0.2)',
+              backgroundColor: 'rgba(255,99,132,1)',
               borderColor: 'rgba(255,99,132,1)',
               borderWidth: 1,
               hoverBackgroundColor: 'rgba(255,99,132,0.4)',
@@ -702,7 +702,7 @@ class StoweDash extends Component {
           datasets: [
             {
               label: 'Ring Time Per Hour',
-              backgroundColor: 'rgba(255,99,132,0.2)',
+              backgroundColor: 'rgba(255,99,132,1)',
               borderColor: 'rgba(255,99,132,1)',
               borderWidth: 1,
               hoverBackgroundColor: 'rgba(255,99,132,0.4)',
@@ -760,7 +760,7 @@ class StoweDash extends Component {
             datasets: [
               {
                 label: 'Total Calls Per Agent',
-                backgroundColor: 'rgba(255,99,132,0.2)',
+                backgroundColor: 'rgba(255,99,132,1)',
                 borderColor: 'rgba(255,99,132,1)',
                 borderWidth: 1,
                 hoverBackgroundColor: 'rgba(255,99,132,0.4)',
@@ -858,7 +858,7 @@ class StoweDash extends Component {
         <Row>
         
           <Col xs="12" sm="6" lg="2">
-            <Card className="text-white bg-success cardOverwirte flexBox">
+            <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#0ee258'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
                 <div className="text-value" style={{ fontSize: 170, paddingTop: '45px'  }}> {this.state.incomingCalls}</div>
               </CardBody>
@@ -869,7 +869,7 @@ class StoweDash extends Component {
           </Col>
 
           <Col xs="12" sm="6" lg="2">
-            <Card className="text-white bg-danger cardOverwirte flexBox">
+            <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#ff0f0d'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
                 <div className="text-value" style={{fontSize: 170, paddingTop: '45px' }}>{this.state.noAnswer}</div>
 
@@ -881,7 +881,7 @@ class StoweDash extends Component {
             </Card>
           </Col>
           <Col xs="12" sm="6" lg="2">
-            <Card className="text-white bg-danger cardOverwirte flexBox">
+            <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#ff0f0d'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
                 <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.abandoned}</div>
               </CardBody>
@@ -892,7 +892,7 @@ class StoweDash extends Component {
           </Col>
 
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-primary cardOverwirte flexBox">
+            <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#0cb2ec'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
                 <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.outgoing}</div>
               </CardBody>
@@ -902,7 +902,7 @@ class StoweDash extends Component {
             </Card>
           </Col>
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-primary cardOverwirte flexBox">
+            <Card className="text-white cardOverwirte flexBox"  style={{backgroundColor: '#0cb2ec'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
                 {/* <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.outgoing}</div> */}
               </CardBody>
@@ -925,7 +925,7 @@ class StoweDash extends Component {
               <CardBody >
                 <div className="chart-wrapper">
                   {
-                    this.state.callsPerHour && <Bar data={this.state.callsPerHour} options={options} />
+                    this.state.callsPerHour && <Bar data={this.state.callsPerHour} options={options}  />
                   }
 
                 </div>
@@ -950,7 +950,7 @@ class StoweDash extends Component {
             <CardBody >
               <div className="chart-wrapper" height="">
                 {
-                  this.state.callsPerAgent && <Bar data={this.state.callsPerAgent} options={options} height={ 200 } />
+                  this.state.callsPerAgent && <Bar data={this.state.callsPerAgent} options={options} height={ 200} />
                 }
               </div>
           </CardBody>
