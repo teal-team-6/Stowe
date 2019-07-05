@@ -1075,12 +1075,9 @@ app.get('/api/getAvgPerAgent', function (req, res) {
     let current_datetime = new Date();
     let formatted_date = current_datetime.getFullYear() + "/" + (current_datetime.getMonth() + 1) + "/" + current_datetime.getDate();
     let agentQueStats = 'Select Agent.A_Name, Queue_Groups.Q_Name, Agent.A_Status, AC_Ring_No_Answer as Ring_No_Answer, AC_Taken as Answered_Calls, AC_Outbound as OutBound_Calls, (AC_Taken+AC_Outbound) as [All_Calls] from Agent_Calls_Details, Queue_Groups, Agent Where Agent.A_Group = Queue_Groups.Q_Code and Agent_Calls_Details.AC_Date = '+formatted_date+' and agent.A_Code = AC_Agent_Code order by Q_Name asc';
-executeQuery(res,agentQueStats );
+    executeQuery(res,agentQueStats );
     
 });
-
-
-
 
 app.get('/api/getHourlyData', function (req, res) {
     //get incoming , ring no answer abandoned outgoing
@@ -1116,7 +1113,7 @@ app.get('/api/avgRingTime',function(req,res){
     'Left Join Call_details on ' +
     "(Datepart(Hour,CD_Time_Of_Call) = HourVal) and cd_date = '" + formatted_date + "'  " +
     'group by HourPeriod';
-        executeQuery (res, avgRingTime);
+    executeQuery (res, avgRingTime);
 });
 
 app.get('/api/getIncoming',function(req,res){
@@ -1130,6 +1127,13 @@ app.get('/api/getInque',function(req,res){
     const inQue = "Select In_Que from Call_Stage";
     executeQuery(res, inQue);
 });
+
+app.get('/api/getLongestWait',function(req,res){
+   
+    let longest_Wait_Time = "Select longest_Wait_Time from Call_Stage";
+    executeQuery(res, longest_Wait_Time);
+});
+
 
 
 app.get('/api/getOutgoing',function(req,res){

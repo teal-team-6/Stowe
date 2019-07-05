@@ -364,98 +364,6 @@ const sparklineChartOpts = {
 
 // Main Chart
 
-//Random Numbers
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-// var elements = 27;
-// var data1 = [];
-// var data2 = [];
-// var data3 = [];
-
-// for (var i = 0; i <= elements; i++) {
-//   data1.push(random(50, 200));
-//   data2.push(random(80, 100));
-//   data3.push(65);
-// }
-
-// const mainChart = {
-//   labels: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-//   datasets: [
-//     {
-//       label: 'My First dataset',
-//       backgroundColor: hexToRgba(brandInfo, 10),
-//       borderColor: brandInfo,
-//       pointHoverBackgroundColor: '#fff',
-//       borderWidth: 2,
-//       data: data1,
-//     },
-//     {
-//       label: 'My Second dataset',
-//       backgroundColor: 'transparent',
-//       borderColor: brandSuccess,
-//       pointHoverBackgroundColor: '#fff',
-//       borderWidth: 2,
-//       data: data2,
-//     },
-//     {
-//       label: 'My Third dataset',
-//       backgroundColor: 'transparent',
-//       borderColor: brandDanger,
-//       pointHoverBackgroundColor: '#fff',
-//       borderWidth: 1,
-//       borderDash: [8, 5],
-//       data: data3,
-//     },
-//   ],
-// };
-
-// let CallsPerHourbar = {
-//   labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
-//   datasets: [
-//     {
-//       label: 'Calls Per Hour',
-//       backgroundColor: 'rgba(255,99,132,0.2)',
-//       borderColor: 'rgba(255,99,132,1)',
-//       borderWidth: 1,
-//       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-//       hoverBorderColor: 'rgba(255,99,132,1)',
-//       data: [0, 0, 0, 0, 0, 0, 34, 49, 50, 81, 56, 75, 40, 34, 54, 23, 0, 0, 0, 0],
-//     },
-//   ],
-// };
-
-// let AvgRingTimePerHour = {
-//   labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
-//   datasets: [
-//     {
-//       label: 'Ring Time Per Hour',
-//       backgroundColor: 'rgba(255,99,132,0.2)',
-//       borderColor: 'rgba(255,99,132,1)',
-//       borderWidth: 1,
-//       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-//       hoverBorderColor: 'rgba(255,99,132,1)',
-//       data: [0, 0, 0, 0, 0, 0, 34, 49, 50, 81, 56, 75, 40, 34, 54, 23, 0, 0, 0, 100],
-//     },
-//   ],
-// };
-
-// const CallsPerAgent = {
-//   labels: ['Shea Slinger', 'Curwin', 'Meagan', 'Damskey', 'Snazo', 'Sulaiman', 'Dillon', 'Lona', 'Angela Hitchcock', 'Phumeza', 'Yanga', 'Rudolph', 'Slyanda', 'Charl'],
-//   datasets: [
-//     {
-//       label: 'Total Calls Per Agent',
-//       backgroundColor: 'rgba(255,99,132,0.2)',
-//       borderColor: 'rgba(255,99,132,1)',
-//       borderWidth: 1,
-//       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-//       hoverBorderColor: 'rgba(255,99,132,1)',
-//       data: [34, 21, 23, 4, 37, 11, 10, 22, 2, 39, 24, 3, 16, 20],
-//     },
-//   ],
-// };
-
 const options = {
   tooltips: {
     enabled: false,
@@ -604,6 +512,30 @@ class StoweDash extends Component {
         hasFailed = true;
         //console.log('getInque has err : >', err)
       }),
+      await fetch('api/getLongestWait', {
+        accept: "application/json",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(
+        response =>
+          response.json().then(data => ({
+            data: data,
+            status: response.status
+          }
+          )).then(res => {
+            let datestring = res.data.data.recordset[0].longest_Wait_Time.toString();
+           const stringlength = datestring.length;
+            datestring = datestring.slice(11, stringlength);
+            datestring = datestring.slice(0, 8);
+            headerData.longestWaitTime = datestring;
+          })
+      )
+      .catch((err)=> {
+        hasFailed = true;
+        //console.log('getInque has err : >', err)
+      }),
       await fetch('api/getOutgoing', {
         accept: "application/json",
         method: "GET",
@@ -674,11 +606,11 @@ class StoweDash extends Component {
          // noAnswer: headerData.noAnswer,
         //  abandoned:headerData.abandoned 
         // })
-        if( headerData.incoming !== null  && headerData.inQ  !== null&& headerData.outgoing!== null && headerData.noAnswer!== null && headerData.abandoned!== null){
-         // console.log('setting heading data state');
+        if( headerData.incoming !== null  && headerData.inQ  !== null&& headerData.outgoing!== null && headerData.noAnswer!== null && headerData.abandoned!== null && headerData.longestWaitTime !== null ){
             this.setState({
               incomingCalls: headerData.incoming,
               inQue: headerData.inQ,
+              longestWaitTime: headerData.longestWaitTime,
               outgoing: headerData.outgoing,
               noAnswer: headerData.noAnswer,
               abandoned: headerData.abandoned,
@@ -925,36 +857,35 @@ class StoweDash extends Component {
 
         <Row>
         
-          <Col xs="12" sm="6" lg="3">
+          <Col xs="12" sm="6" lg="2">
             <Card className="text-white bg-success cardOverwirte flexBox">
               <CardBody className="pb-0 cardbodyOverwrite">
                 <div className="text-value" style={{ fontSize: 170, paddingTop: '45px'  }}> {this.state.incomingCalls}</div>
               </CardBody>
-              <div className="chart-wrapper" style={{ height: '70px' }}>
+              <div className="chart-wrapper" style={{ height: 70}}>
               <div style={{ fontSize: 27, paddingTop:'30px'}}> Incoming Calls</div>
               </div>
             </Card>
           </Col>
 
-          <Col xs="12" sm="6" lg="3">
+          <Col xs="12" sm="6" lg="2">
             <Card className="text-white bg-danger cardOverwirte flexBox">
               <CardBody className="pb-0 cardbodyOverwrite">
                 <div className="text-value" style={{fontSize: 170, paddingTop: '45px' }}>{this.state.noAnswer}</div>
 
                 
               </CardBody>
-              <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
+              <div className="chart-wrapper mx-3" style={{ height: 70 }}>
               <div style={{  fontSize: 27, paddingTop:'30px' }}>Ring No Answer</div>
               </div>
             </Card>
           </Col>
-
-          <Col xs="12" sm="6" lg="3">
+          <Col xs="12" sm="6" lg="2">
             <Card className="text-white bg-danger cardOverwirte flexBox">
               <CardBody className="pb-0 cardbodyOverwrite">
                 <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.abandoned}</div>
               </CardBody>
-              <div className="chart-wrapper" style={{ height: '70px' }}>
+              <div className="chart-wrapper" style={{ height: 70 }}>
               <div style={{ fontSize: 27 , paddingTop:'30px'}}>Abandoned Calls</div>
               </div>
             </Card>
@@ -964,10 +895,24 @@ class StoweDash extends Component {
             <Card className="text-white bg-primary cardOverwirte flexBox">
               <CardBody className="pb-0 cardbodyOverwrite">
                 <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.outgoing}</div>
-               
               </CardBody>
-              <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
+              <div className="chart-wrapper mx-3" style={{ height: 70 }}>
               <div style={{  fontSize: 27, paddingTop:'30px' }}>Outgoing Calls</div>
+              </div>
+            </Card>
+          </Col>
+          <Col xs="12" sm="6" lg="3">
+            <Card className="text-white bg-primary cardOverwirte flexBox">
+              <CardBody className="pb-0 cardbodyOverwrite">
+                {/* <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.outgoing}</div> */}
+              </CardBody>
+                <div className="chart-wrapper mx-3" style={{ height: 234 }}>
+                <div style={{  fontSize: 27, paddingTop:'15px' }}>Waiting Time</div>
+                <br/>
+                <div style={{  fontSize: 79,paddingTop:'5px' }}> {this.state.longestWaitTime}</div>
+                <div style={{  fontSize: 27, paddingTop:'25px' }}>Calls in the Queue</div>
+                <br/>
+                <div style={{  fontSize: 79 , paddingTop:'5px' }}> {this.state.inQue}</div>
               </div>
             </Card>
           </Col>
@@ -1005,7 +950,7 @@ class StoweDash extends Component {
             <CardBody >
               <div className="chart-wrapper" height="">
                 {
-                  this.state.callsPerAgent && <Bar data={this.state.callsPerAgent} options={options} height={ '200px'} />
+                  this.state.callsPerAgent && <Bar data={this.state.callsPerAgent} options={options} height={ 200 } />
                 }
               </div>
           </CardBody>
@@ -1018,17 +963,17 @@ class StoweDash extends Component {
             </CardHeader><CardBody className="cardbodyOverwrite">
                 <Table responsive>
                   <thead>
-                    <tr>
-                      <th>Agents</th>
-                      <th>Status</th>
-                      <th>RNA</th>
-                      <th>Outb. Calls</th>
-                      <th>Ans. Calls</th>
-                      <th>All Calls</th>
+                    <tr style={{ backgroundColor: "grey" }}>
+                      <th style={{ color: "white" }}>Agents</th>
+                      <th style={{ color: "white" }}>Status</th>
+                      <th style={{ color: "white" }}>RNA</th>
+                      <th style={{ color: "white" }}>Outb. Calls</th>
+                      <th style={{ color: "white" }}>Ans. Calls</th>
+                      <th style={{ color: "white" }}>All Calls</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr style={{ backgroundColor: '#f0f3f5' }}><td>NetPOS</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr style={{ backgroundColor: '#f0f3f5' }}><td style={{ fontWeight: 'bold' }}>NetPOS</td><td></td><td></td><td></td><td></td><td></td></tr>
 
 
 
@@ -1042,13 +987,13 @@ class StoweDash extends Component {
                             <td>{data.Ring_No_Answer}</td>
                             <td>{data.OutBound_Calls}</td>
                             <td>{data.Answered_Calls}</td>
-                            <td>{data.All_Calls}</td>
+                            <td style={{ fontWeight: 'bold' }}>{data.All_Calls}</td>
                           </tr>
                         );
                       })}
 
 
-                    <tr style={{ backgroundColor: '#f0f3f5' }}><td>PEC. Namos</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr style={{ backgroundColor: '#f0f3f5' }}><td style={{ fontWeight: 'bold' }}>PEC. Namos</td><td></td><td></td><td></td><td></td><td></td></tr>
                     {this.state.agentData && this.state.agentData['PEC & Namos'] &&
                       Object.keys(this.state.agentData['PEC & Namos']).map((k, i) => {
                         let data = this.state.agentData['PEC & Namos'][k];
@@ -1059,11 +1004,11 @@ class StoweDash extends Component {
                             <td>{data.Ring_No_Answer}</td>
                             <td>{data.OutBound_Calls}</td>
                             <td>{data.Answered_Calls}</td>
-                            <td>{data.All_Calls}</td>
+                            <td style={{ fontWeight: 'bold' }}>{data.All_Calls}</td>
                           </tr>
                         );
                       })}
-                    <tr style={{ backgroundColor: '#f0f3f5' }}><td>Retalix</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr style={{ backgroundColor: '#f0f3f5' }}><td style={{ fontWeight: 'bold' }}>Retalix</td><td></td><td></td><td></td><td></td><td></td></tr>
                     {this.state.agentData && this.state.agentData['Retalix'] &&
                       Object.keys(this.state.agentData['Retalix']).map((k, i) => {
                         let data = this.state.agentData['Retalix'][k];
@@ -1074,7 +1019,7 @@ class StoweDash extends Component {
                             <td>{data.Ring_No_Answer}</td>
                             <td>{data.OutBound_Calls}</td>
                             <td>{data.Answered_Calls}</td>
-                            <td>{data.All_Calls}</td>
+                            <td style={{ fontWeight: 'bold' }}>{data.All_Calls}</td>
                           </tr>
                         );
                       })}
