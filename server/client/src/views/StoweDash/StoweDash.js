@@ -26,6 +26,12 @@ const brandInfo = getStyle('--info')
 const brandWarning = getStyle('--warning')
 const brandDanger = getStyle('--danger')
 
+/// colour options for bar 
+const backgroundColor = 'rgb(12, 178, 236)'; // bar background colour
+const borderColor = 'rgb(12, 178, 236)';// bar border
+const borderWidth = 1; 
+const  hoverBackgroundColor = 'rgb(12, 178, 236)';
+const hoverBorderColor= 'rgb(12, 178, 236)';
 
 
 let groupBy = function (xs, key) {
@@ -35,332 +41,6 @@ let groupBy = function (xs, key) {
   }, {});
 };
 
-// Card Chart 1
-const cardChartData1 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: brandDanger,
-      borderColor: 'rgba(255,255,255,.55)',
-      data: [65, 59, 84, 84, 51, 55, 40],
-    },
-  ],
-};
-
-const cardChartOpts1 = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          color: 'transparent',
-          zeroLineColor: 'transparent',
-        },
-        ticks: {
-          fontSize: 2,
-          fontColor: 'transparent',
-        },
-
-      }],
-    yAxes: [
-      {
-        display: false,
-        ticks: {
-          display: false,
-          min: Math.min.apply(Math, cardChartData1.datasets[0].data) - 5,
-          max: Math.max.apply(Math, cardChartData1.datasets[0].data) + 5,
-        },
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 1,
-    },
-    point: {
-      radius: 4,
-      hitRadius: 10,
-      hoverRadius: 4,
-    },
-  }
-}
-
-// Card Chart 2
-const incomingCalls = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: brandSuccess,
-      borderColor: 'rgba(255,255,255,.55)',
-      data: [1, 18, 9, 17, 34, 22, 11],
-    },
-  ],
-};
-
-const cardChartOpts2 = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          color: 'transparent',
-          zeroLineColor: 'transparent',
-        },
-        ticks: {
-          fontSize: 2,
-          fontColor: 'transparent',
-        },
-
-      }],
-    yAxes: [
-      {
-        display: false,
-        ticks: {
-          display: false,
-          min: Math.min.apply(Math, incomingCalls.datasets[0].data) - 5,
-          max: Math.max.apply(Math, incomingCalls.datasets[0].data) + 5,
-        },
-      }],
-  },
-  elements: {
-    line: {
-      tension: 0.00001,
-      borderWidth: 1,
-    },
-    point: {
-      radius: 4,
-      hitRadius: 10,
-      hoverRadius: 4,
-    },
-  },
-};
-
-// Card Chart 3
-const cardChartData3 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: brandDanger,
-      borderColor: 'rgba(255,255,255,.55)',
-      data: [78, 81, 80, 45, 34, 12, 40],
-    },
-  ],
-};
-
-const cardChartOpts3 = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 2,
-    },
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-    },
-  },
-};
-
-// Card Chart 4
-const cardChartData4 = {
-  labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: brandInfo,
-      borderColor: 'transparent',
-      data: [78, 81, 80, 45, 34, 12, 40, 75, 34, 89, 32, 68, 54, 72, 18, 98],
-    },
-  ],
-};
-
-const cardChartOpts4 = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        display: false,
-        barPercentage: 0.6,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-};
-
-// Social Box Chart
-const socialBoxData = [
-  { data: [65, 59, 84, 84, 51, 55, 40], label: 'facebook' },
-  { data: [1, 13, 9, 17, 34, 41, 38], label: 'twitter' },
-  { data: [78, 81, 80, 45, 34, 12, 40], label: 'linkedin' },
-  { data: [35, 23, 56, 22, 97, 23, 64], label: 'google' },
-];
-
-const makeSocialBoxData = (dataSetNo) => {
-  const dataset = socialBoxData[dataSetNo];
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        backgroundColor: 'rgba(255,255,255,.1)',
-        borderColor: 'rgba(255,255,255,.55)',
-        pointHoverBackgroundColor: '#fff',
-        borderWidth: 2,
-        data: dataset.data,
-        label: dataset.label,
-      },
-    ],
-  };
-  return () => data;
-};
-
-const socialChartOpts = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  responsive: true,
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-};
-
-// sparkline charts
-const sparkLineChartData = [
-  {
-    data: [35, 23, 56, 22, 97, 23, 64],
-    label: 'New Clients',
-  },
-  {
-    data: [65, 59, 84, 84, 51, 55, 40],
-    label: 'Recurring Clients',
-  },
-  {
-    data: [35, 23, 56, 22, 97, 23, 64],
-    label: 'Pageviews',
-  },
-  {
-    data: [65, 59, 84, 84, 51, 55, 40],
-    label: 'Organic',
-  },
-  {
-    data: [78, 81, 80, 45, 34, 12, 40],
-    label: 'CTR',
-  },
-  {
-    data: [1, 13, 9, 17, 34, 41, 38],
-    label: 'Bounce Rate',
-  },
-];
-
-const makeSparkLineData = (dataSetNo, variant) => {
-  const dataset = sparkLineChartData[dataSetNo];
-  const data = {
-    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    datasets: [
-      {
-        backgroundColor: 'transparent',
-        borderColor: variant ? variant : '#c2cfd6',
-        data: dataset.data,
-        label: dataset.label,
-      },
-    ],
-  };
-  return () => data;
-};
-
-const sparklineChartOpts = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  responsive: true,
-  maintainAspectRatio: true,
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 2,
-    },
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-  legend: {
-    display: false,
-  },
-};
 
 // Main Chart
 
@@ -371,64 +51,6 @@ const options = {
   },
   maintainAspectRatio: false
 }
-
-const mainChartOpts = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips,
-    intersect: true,
-    mode: 'index',
-    position: 'nearest',
-    callbacks: {
-      labelColor: function (tooltipItem, chart) {
-        return { backgroundColor: chart.data.datasets[tooltipItem.datasetIndex].borderColor }
-      }
-    }
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          drawOnChartArea: false,
-        },
-      }],
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-          maxTicksLimit: 5,
-          stepSize: Math.ceil(250 / 5),
-          max: 250,
-        },
-      }],
-  },
-  elements: {
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-};
-
-
-function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
-  const error = new Error(`HTTP Error ${response.statusText}`);
-  error.status = response.statusText;
-  error.response = response;
-  console.log(error); // eslint-disable-line no-console
-  throw error;
-}
-
-
 
 class StoweDash extends Component {
   constructor(props) {
@@ -682,11 +304,12 @@ class StoweDash extends Component {
           datasets: [
             {
               label: 'Calls Per Hour',
-              backgroundColor: 'rgba(255,99,132,1)',
-              borderColor: 'rgba(255,99,132,1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-              hoverBorderColor: 'rgba(255,99,132,1)',
+              backgroundColor: backgroundColor,
+              borderColor: borderColor,
+              borderWidth: borderWidth,
+              hoverBackgroundColor: hoverBackgroundColor,
+              hoverBorderColor: hoverBorderColor,
+              //data: [10, 20, 33, 4, 44, 55, 7],
               data: [
                 objPerHr[0].Calls, objPerHr[1].Calls, objPerHr[2].Calls,
                 objPerHr[3].Calls, objPerHr[4].Calls, objPerHr[5].Calls, objPerHr[6].Calls, objPerHr[7].Calls,
@@ -702,11 +325,12 @@ class StoweDash extends Component {
           datasets: [
             {
               label: 'Ring Time Per Hour',
-              backgroundColor: 'rgba(255,99,132,1)',
-              borderColor: 'rgba(255,99,132,1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-              hoverBorderColor: 'rgba(255,99,132,1)',
+              backgroundColor: backgroundColor,
+              borderColor: borderColor,
+              borderWidth: borderWidth,
+              hoverBackgroundColor: hoverBackgroundColor,
+              hoverBorderColor: hoverBorderColor,
+              //data: [10, 20, 33, 4, 44, 55, 7],
               data: [
                 objRingPerHr[0].Total, objRingPerHr[1].Total, objRingPerHr[2].Total,
                 objRingPerHr[3].Total, objRingPerHr[4].Total, objRingPerHr[5].Total, objRingPerHr[6].Total, objRingPerHr[7].Total,
@@ -760,12 +384,13 @@ class StoweDash extends Component {
             datasets: [
               {
                 label: 'Total Calls Per Agent',
-                backgroundColor: 'rgba(255,99,132,1)',
-                borderColor: 'rgba(255,99,132,1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                hoverBorderColor: 'rgba(255,99,132,1)',
+                backgroundColor: backgroundColor,
+                borderColor: borderColor,
+                borderWidth: borderWidth,
+                hoverBackgroundColor: hoverBackgroundColor,
+                hoverBorderColor: hoverBorderColor,
                 data: data,
+               //data: [10, 20, 33, 4, 44, 55, 7],
               },
             ],
           };
@@ -860,10 +485,10 @@ class StoweDash extends Component {
           <Col xs="12" sm="6" lg="2">
             <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#0ee258'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 170, paddingTop: '45px'  }}> {this.state.incomingCalls}</div>
+                <div className="text-value" style={{ fontSize: 142, paddingTop: '45px'  }}> {this.state.incomingCalls}</div>
               </CardBody>
-              <div className="chart-wrapper" style={{ height: 70}}>
-              <div style={{ fontSize: 20, paddingTop:'30px'}}> Incoming Calls</div>
+              <div className="chart-wrapper" style={{ height: 90}}>
+              <div style={{ fontSize: 33, paddingTop:'45px'}}> Incoming Calls</div>
               </div>
             </Card>
           </Col>
@@ -876,7 +501,7 @@ class StoweDash extends Component {
                 
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: 70 }}>
-              <div style={{  fontSize: 20, paddingTop:'30px' }}>Ring No Answer</div>
+              <div style={{  fontSize: 33, paddingTop:'25px' }}>Ring No Answer</div>
               </div>
             </Card>
           </Col>
@@ -886,7 +511,7 @@ class StoweDash extends Component {
                 <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.abandoned}</div>
               </CardBody>
               <div className="chart-wrapper" style={{ height: 70 }}>
-              <div style={{ fontSize: 20 , paddingTop:'30px'}}>Abandoned Calls</div>
+              <div style={{ fontSize: 33 , paddingTop:'25px'}}>Abandoned Calls</div>
               </div>
             </Card>
           </Col>
@@ -897,7 +522,7 @@ class StoweDash extends Component {
                 <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.outgoing}</div>
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: 70 }}>
-              <div style={{  fontSize: 20, paddingTop:'30px' }}>Outgoing Calls</div>
+              <div style={{  fontSize: 33, paddingTop:'25px' }}>Outgoing Calls</div>
               </div>
             </Card>
           </Col>
