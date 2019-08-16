@@ -488,7 +488,7 @@ class StoweDash extends Component {
                 <div className="text-value" style={{ fontSize: 142, paddingTop: '45px'  }}> {this.state.incomingCalls}</div>
               </CardBody>
               <div className="chart-wrapper" style={{ height: 90}}>
-              <div style={{ fontSize: 33, paddingTop:'45px'}}> Incoming Calls</div>
+              <div style={{ fontSize: 25, paddingTop:'45px'}}> Incoming Calls</div>
               </div>
             </Card>
           </Col>
@@ -501,7 +501,7 @@ class StoweDash extends Component {
                 
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: 70 }}>
-              <div style={{  fontSize: 33, paddingTop:'25px' }}>Ring No Answer</div>
+              <div style={{  fontSize: 24, paddingTop:'25px' }}>Ring No Answer</div>
               </div>
             </Card>
           </Col>
@@ -511,7 +511,7 @@ class StoweDash extends Component {
                 <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.abandoned}</div>
               </CardBody>
               <div className="chart-wrapper" style={{ height: 70 }}>
-              <div style={{ fontSize: 33 , paddingTop:'25px'}}>Abandoned Calls</div>
+              <div style={{ fontSize: 24 , paddingTop:'25px'}}>Abandoned Calls</div>
               </div>
             </Card>
           </Col>
@@ -522,7 +522,7 @@ class StoweDash extends Component {
                 <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.outgoing}</div>
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: 70 }}>
-              <div style={{  fontSize: 33, paddingTop:'25px' }}>Outgoing Calls</div>
+              <div style={{  fontSize: 24, paddingTop:'25px' }}>Outgoing Calls</div>
               </div>
             </Card>
           </Col>
