@@ -1,3 +1,30 @@
+
+@media all and (min-width: 50px) {
+    .fontOverwrite  { 
+          font-size:7 !important; 
+        } 
+       };
+   @media all and (min-width: 100px) { .fontOverwrite {   font-size:142px !important;  } };
+   @media all and (min-width: 200px) { .fontOverwrite  {   font-size:142px !important;  } };
+   @media all and (min-width: 300px) { .fontOverwrite  {   font-size:142px !important;  } };
+   @media all and (min-width: 400px) { .fontOverwrite  {   font-size:142px !important;  } };
+   @media all and (min-width: 500px) { .fontOverwrite  {   font-size:142px !important;  } };
+   @media all and (min-width: 600px) { .fontOverwrite  {   font-size:142px !important;  } };
+   @media all and (min-width: 700px) { .fontOverwrite  {   font-size:142px !important;  } };
+   @media all and (min-width: 800px) { .fontOverwrite  {   font-size:142px !important;  } };
+   @media all and (min-width: 900px) { .fontOverwrite  {   font-size:142px !important;  } };
+   @media all and (min-width: 1000px) { .fontOverwrite  { font-size:80px !important;  } };
+   @media all and (min-width: 1100px) { .fontOverwrite  { font-size:80px !important;  } };
+   @media all and (min-width: 1200px) { .fontOverwrite  { font-size:100px !important;  } };
+   @media all and (min-width: 1300px) { .fontOverwrite  { font-size:100px !important;  } };
+   @media all and (min-width: 1400px) { .fontOverwrite  { font-size:110px !important; } };
+   @media all and (min-width: 1500px) { .fontOverwrite  { font-size:110px !important;  } };
+   @media all and (min-width: 1500px) { .fontOverwrite  { font-size:120px !important;  } };
+   @media all and (min-width: 1600px) { .fontOverwrite  { font-size:142px !important;  } };
+   @media all and (min-width: 1700px) { .fontOverwrite   { font-size:142px !important;  } };
+   
+
+
 // Styles
 // CoreUI Icons Set
 @import '~@coreui/icons/css/coreui-icons.css';

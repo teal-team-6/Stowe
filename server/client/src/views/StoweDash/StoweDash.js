@@ -485,10 +485,10 @@ class StoweDash extends Component {
           <Col xs="12" sm="6" lg="2">
             <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#0ee258'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 142, paddingTop: '45px'  }}> {this.state.incomingCalls}</div>
+                <div className="fontOverwrite" style={{  paddingTop: '45px'  }}> {this.state.incomingCalls}</div>
               </CardBody>
-              <div className="chart-wrapper" style={{ height: 90}}>
-              <div style={{ fontSize: 25, paddingTop:'45px'}}> Incoming Calls</div>
+              <div className="chart-wrapper mx-3" style={{ height: 90}}>
+              <div  className="text-value" style={{ fontSize: 25, paddingTop:'45px'}}> Incoming Calls</div>
               </div>
             </Card>
           </Col>
@@ -496,22 +496,20 @@ class StoweDash extends Component {
           <Col xs="12" sm="6" lg="2">
             <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#ff0f0d'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{fontSize: 170, paddingTop: '45px' }}>{this.state.noAnswer}</div>
-
-                
+                <div className="fontOverwrite" style={{ paddingTop: '45px' }}>{this.state.noAnswer}</div>
               </CardBody>
-              <div className="chart-wrapper mx-3" style={{ height: 70 }}>
-              <div style={{  fontSize: 24, paddingTop:'25px' }}>Ring No Answer</div>
+              <div className="chart-wrapper mx-3" style={{ height: 90 }}>
+              <div className="text-value"  style={{ fontSize: 24 , paddingTop:'45px' }}>Ring No Answer</div>
               </div>
             </Card>
           </Col>
           <Col xs="12" sm="6" lg="2">
             <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#ff0f0d'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.abandoned}</div>
+                <div className="fontOverwrite" style={{ paddingTop: '45px' }}>{this.state.abandoned}</div>
               </CardBody>
-              <div className="chart-wrapper" style={{ height: 70 }}>
-              <div style={{ fontSize: 24 , paddingTop:'25px'}}>Abandoned Calls</div>
+              <div className="chart-wrapper mx-3" style={{ height: 90 }}>
+              <div className="text-value" style={{ fontSize: 24 , paddingTop:'45px'}}>Abandoned Calls</div>
               </div>
             </Card>
           </Col>
@@ -519,10 +517,10 @@ class StoweDash extends Component {
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#0cb2ec'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.outgoing}</div>
+                <div className="fontOverwrite" style={{  paddingTop: '45px' }}>{this.state.outgoing}</div>
               </CardBody>
-              <div className="chart-wrapper mx-3" style={{ height: 70 }}>
-              <div style={{  fontSize: 24, paddingTop:'25px' }}>Outgoing Calls</div>
+              <div className="chart-wrapper mx-3" style={{ height: 90 }}>
+              <div className="text-value"  style={{  fontSize: 24, paddingTop:'45px' }}>Outgoing Calls</div>
               </div>
             </Card>
           </Col>
