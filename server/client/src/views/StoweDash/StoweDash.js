@@ -488,7 +488,7 @@ class StoweDash extends Component {
                 <div className="fontOverwrite" style={{  paddingTop: '45px'  }}> {this.state.incomingCalls}</div>
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: 90}}>
-              <div  className="text-value" style={{ fontSize: 25, paddingTop:'45px'}}> Incoming Calls</div>
+              <div  className="text-value" style={{ fontSize: 19, paddingTop:'45px'}}> Incoming Calls</div>
               </div>
             </Card>
           </Col>
@@ -499,7 +499,7 @@ class StoweDash extends Component {
                 <div className="fontOverwrite" style={{ paddingTop: '45px' }}>{this.state.noAnswer}</div>
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: 90 }}>
-              <div className="text-value"  style={{ fontSize: 24 , paddingTop:'45px' }}>Ring No Answer</div>
+              <div className="text-value"  style={{ fontSize: 19 , paddingTop:'45px' }}>Ring No Answer</div>
               </div>
             </Card>
           </Col>
@@ -509,7 +509,7 @@ class StoweDash extends Component {
                 <div className="fontOverwrite" style={{ paddingTop: '45px' }}>{this.state.abandoned}</div>
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: 90 }}>
-              <div className="text-value" style={{ fontSize: 24 , paddingTop:'45px'}}>Abandoned Calls</div>
+              <div className="text-value" style={{ fontSize: 19 , paddingTop:'45px'}}>Abandoned Calls</div>
               </div>
             </Card>
           </Col>
@@ -520,7 +520,7 @@ class StoweDash extends Component {
                 <div className="fontOverwrite" style={{  paddingTop: '45px' }}>{this.state.outgoing}</div>
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: 90 }}>
-              <div className="text-value"  style={{  fontSize: 24, paddingTop:'45px' }}>Outgoing Calls</div>
+              <div className="text-value"  style={{  fontSize: 19, paddingTop:'45px' }}>Outgoing Calls</div>
               </div>
             </Card>
           </Col>
