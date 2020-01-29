@@ -51,11 +51,20 @@
     height: '250px';
 }
 
+.cardHeaderOverride{
+    padding: 0.5rem 1.25rem;
+}
+
 .heightOverwrite{
     height: 100vh;
 }
 
 .cardbodyOverwrite{
+    padding-top: 0rem;
+    // padding-bottom: 0.5rem;
+}
+
+.cardbodyTableOverwrite{
     padding: 0rem;
     // padding-bottom: 0.5rem;
 }

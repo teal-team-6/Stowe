@@ -542,11 +542,13 @@ class StoweDash extends Component {
         </Row> <Row>
           <Col xs="12" sm="6" lg="6">
             <Card className="cardOverwirte">
-              <CardHeader>
+              
+  <CardHeader className="cardHeaderOverride">
+  
                 Amount Of Calls per Hour
               </CardHeader>
-              <CardBody >
-                <div className="chart-wrapper">
+              <CardBody className="cardbodyOverwrite" >
+                <div className="chart-wrapper" style={{height:"19vh"}} >
                   {
                     this.state.callsPerHour && <Bar data={this.state.callsPerHour} options={options}  />
                   }
@@ -555,11 +557,13 @@ class StoweDash extends Component {
               </CardBody>
             </Card>
             <Card className="cardOverwirte">
-              <CardHeader>
+             
+  <CardHeader className="cardHeaderOverride">
+  
                 Average Ring Time Per Hour
               </CardHeader>
-              <CardBody >
-                <div className="chart-wrapper">
+              <CardBody className="cardbodyOverwrite" >
+                <div className="chart-wrapper" style={{height:"19vh"}} >
                   {
                     this.state.avgRingTimePerHour && <Bar data={this.state.avgRingTimePerHour} options={options} />
                   }
@@ -567,11 +571,13 @@ class StoweDash extends Component {
               </CardBody>
             </Card>
             <Card className="cardOverwirte" >
-          <CardHeader>
+         
+  <CardHeader className="cardHeaderOverride">
+  
             All Calls Per Agent
                 </CardHeader>
-            <CardBody >
-              <div className="chart-wrapper" height="">
+                <CardBody className="cardbodyOverwrite" >
+                <div className="chart-wrapper" style={{height:"19vh"}} >
                 {
                   this.state.callsPerAgent && <Bar data={this.state.callsPerAgent} options={options} height={ 200} />
                 }
@@ -581,9 +587,11 @@ class StoweDash extends Component {
           </Col>
           <Col xs="12" sm="6" lg="6">
             <Card className="cardOverwirte">
-              <CardHeader>
+           
+  <CardHeader className="cardHeaderOverride">
+  
                 Agent Queue Statistics
-            </CardHeader><CardBody className="cardbodyOverwrite">
+            </CardHeader><CardBody className="cardbodyTableOverwrite">
                 <Table responsive>
                   <thead>
                     <tr style={{ backgroundColor: "grey" }}>
