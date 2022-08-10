@@ -12,7 +12,8 @@
     "start": "npm run clean && npm i && npm run dev",
     "server": "export NODE_ENV=development && nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "killall node && concurrently \"npm run server\" \"npm run client\""
+    "dev": "killall node && concurrently \"npm run server\" \"npm run client\"",
+    "serve": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",

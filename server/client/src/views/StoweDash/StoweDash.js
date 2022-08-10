@@ -26,6 +26,12 @@ const brandInfo = getStyle('--info')
 const brandWarning = getStyle('--warning')
 const brandDanger = getStyle('--danger')
 
+/// colour options for bar 
+const backgroundColor = 'rgb(12, 178, 236)'; // bar background colour
+const borderColor = 'rgb(12, 178, 236)';// bar border
+const borderWidth = 1; 
+const  hoverBackgroundColor = 'rgb(12, 178, 236)';
+const hoverBorderColor= 'rgb(12, 178, 236)';
 
 
 let groupBy = function (xs, key) {
@@ -35,426 +41,8 @@ let groupBy = function (xs, key) {
   }, {});
 };
 
-// Card Chart 1
-const cardChartData1 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: brandDanger,
-      borderColor: 'rgba(255,255,255,.55)',
-      data: [65, 59, 84, 84, 51, 55, 40],
-    },
-  ],
-};
-
-const cardChartOpts1 = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          color: 'transparent',
-          zeroLineColor: 'transparent',
-        },
-        ticks: {
-          fontSize: 2,
-          fontColor: 'transparent',
-        },
-
-      }],
-    yAxes: [
-      {
-        display: false,
-        ticks: {
-          display: false,
-          min: Math.min.apply(Math, cardChartData1.datasets[0].data) - 5,
-          max: Math.max.apply(Math, cardChartData1.datasets[0].data) + 5,
-        },
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 1,
-    },
-    point: {
-      radius: 4,
-      hitRadius: 10,
-      hoverRadius: 4,
-    },
-  }
-}
-
-// Card Chart 2
-const incomingCalls = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: brandSuccess,
-      borderColor: 'rgba(255,255,255,.55)',
-      data: [1, 18, 9, 17, 34, 22, 11],
-    },
-  ],
-};
-
-const cardChartOpts2 = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          color: 'transparent',
-          zeroLineColor: 'transparent',
-        },
-        ticks: {
-          fontSize: 2,
-          fontColor: 'transparent',
-        },
-
-      }],
-    yAxes: [
-      {
-        display: false,
-        ticks: {
-          display: false,
-          min: Math.min.apply(Math, incomingCalls.datasets[0].data) - 5,
-          max: Math.max.apply(Math, incomingCalls.datasets[0].data) + 5,
-        },
-      }],
-  },
-  elements: {
-    line: {
-      tension: 0.00001,
-      borderWidth: 1,
-    },
-    point: {
-      radius: 4,
-      hitRadius: 10,
-      hoverRadius: 4,
-    },
-  },
-};
-
-// Card Chart 3
-const cardChartData3 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: brandDanger,
-      borderColor: 'rgba(255,255,255,.55)',
-      data: [78, 81, 80, 45, 34, 12, 40],
-    },
-  ],
-};
-
-const cardChartOpts3 = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 2,
-    },
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-    },
-  },
-};
-
-// Card Chart 4
-const cardChartData4 = {
-  labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: brandInfo,
-      borderColor: 'transparent',
-      data: [78, 81, 80, 45, 34, 12, 40, 75, 34, 89, 32, 68, 54, 72, 18, 98],
-    },
-  ],
-};
-
-const cardChartOpts4 = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        display: false,
-        barPercentage: 0.6,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-};
-
-// Social Box Chart
-const socialBoxData = [
-  { data: [65, 59, 84, 84, 51, 55, 40], label: 'facebook' },
-  { data: [1, 13, 9, 17, 34, 41, 38], label: 'twitter' },
-  { data: [78, 81, 80, 45, 34, 12, 40], label: 'linkedin' },
-  { data: [35, 23, 56, 22, 97, 23, 64], label: 'google' },
-];
-
-const makeSocialBoxData = (dataSetNo) => {
-  const dataset = socialBoxData[dataSetNo];
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        backgroundColor: 'rgba(255,255,255,.1)',
-        borderColor: 'rgba(255,255,255,.55)',
-        pointHoverBackgroundColor: '#fff',
-        borderWidth: 2,
-        data: dataset.data,
-        label: dataset.label,
-      },
-    ],
-  };
-  return () => data;
-};
-
-const socialChartOpts = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  responsive: true,
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-};
-
-// sparkline charts
-const sparkLineChartData = [
-  {
-    data: [35, 23, 56, 22, 97, 23, 64],
-    label: 'New Clients',
-  },
-  {
-    data: [65, 59, 84, 84, 51, 55, 40],
-    label: 'Recurring Clients',
-  },
-  {
-    data: [35, 23, 56, 22, 97, 23, 64],
-    label: 'Pageviews',
-  },
-  {
-    data: [65, 59, 84, 84, 51, 55, 40],
-    label: 'Organic',
-  },
-  {
-    data: [78, 81, 80, 45, 34, 12, 40],
-    label: 'CTR',
-  },
-  {
-    data: [1, 13, 9, 17, 34, 41, 38],
-    label: 'Bounce Rate',
-  },
-];
-
-const makeSparkLineData = (dataSetNo, variant) => {
-  const dataset = sparkLineChartData[dataSetNo];
-  const data = {
-    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    datasets: [
-      {
-        backgroundColor: 'transparent',
-        borderColor: variant ? variant : '#c2cfd6',
-        data: dataset.data,
-        label: dataset.label,
-      },
-    ],
-  };
-  return () => data;
-};
-
-const sparklineChartOpts = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  responsive: true,
-  maintainAspectRatio: true,
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 2,
-    },
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-  legend: {
-    display: false,
-  },
-};
 
 // Main Chart
-
-//Random Numbers
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-// var elements = 27;
-// var data1 = [];
-// var data2 = [];
-// var data3 = [];
-
-// for (var i = 0; i <= elements; i++) {
-//   data1.push(random(50, 200));
-//   data2.push(random(80, 100));
-//   data3.push(65);
-// }
-
-// const mainChart = {
-//   labels: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-//   datasets: [
-//     {
-//       label: 'My First dataset',
-//       backgroundColor: hexToRgba(brandInfo, 10),
-//       borderColor: brandInfo,
-//       pointHoverBackgroundColor: '#fff',
-//       borderWidth: 2,
-//       data: data1,
-//     },
-//     {
-//       label: 'My Second dataset',
-//       backgroundColor: 'transparent',
-//       borderColor: brandSuccess,
-//       pointHoverBackgroundColor: '#fff',
-//       borderWidth: 2,
-//       data: data2,
-//     },
-//     {
-//       label: 'My Third dataset',
-//       backgroundColor: 'transparent',
-//       borderColor: brandDanger,
-//       pointHoverBackgroundColor: '#fff',
-//       borderWidth: 1,
-//       borderDash: [8, 5],
-//       data: data3,
-//     },
-//   ],
-// };
-
-// let CallsPerHourbar = {
-//   labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
-//   datasets: [
-//     {
-//       label: 'Calls Per Hour',
-//       backgroundColor: 'rgba(255,99,132,0.2)',
-//       borderColor: 'rgba(255,99,132,1)',
-//       borderWidth: 1,
-//       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-//       hoverBorderColor: 'rgba(255,99,132,1)',
-//       data: [0, 0, 0, 0, 0, 0, 34, 49, 50, 81, 56, 75, 40, 34, 54, 23, 0, 0, 0, 0],
-//     },
-//   ],
-// };
-
-// let AvgRingTimePerHour = {
-//   labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
-//   datasets: [
-//     {
-//       label: 'Ring Time Per Hour',
-//       backgroundColor: 'rgba(255,99,132,0.2)',
-//       borderColor: 'rgba(255,99,132,1)',
-//       borderWidth: 1,
-//       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-//       hoverBorderColor: 'rgba(255,99,132,1)',
-//       data: [0, 0, 0, 0, 0, 0, 34, 49, 50, 81, 56, 75, 40, 34, 54, 23, 0, 0, 0, 100],
-//     },
-//   ],
-// };
-
-// const CallsPerAgent = {
-//   labels: ['Shea Slinger', 'Curwin', 'Meagan', 'Damskey', 'Snazo', 'Sulaiman', 'Dillon', 'Lona', 'Angela Hitchcock', 'Phumeza', 'Yanga', 'Rudolph', 'Slyanda', 'Charl'],
-//   datasets: [
-//     {
-//       label: 'Total Calls Per Agent',
-//       backgroundColor: 'rgba(255,99,132,0.2)',
-//       borderColor: 'rgba(255,99,132,1)',
-//       borderWidth: 1,
-//       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-//       hoverBorderColor: 'rgba(255,99,132,1)',
-//       data: [34, 21, 23, 4, 37, 11, 10, 22, 2, 39, 24, 3, 16, 20],
-//     },
-//   ],
-// };
 
 const options = {
   tooltips: {
@@ -463,64 +51,6 @@ const options = {
   },
   maintainAspectRatio: false
 }
-
-const mainChartOpts = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips,
-    intersect: true,
-    mode: 'index',
-    position: 'nearest',
-    callbacks: {
-      labelColor: function (tooltipItem, chart) {
-        return { backgroundColor: chart.data.datasets[tooltipItem.datasetIndex].borderColor }
-      }
-    }
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          drawOnChartArea: false,
-        },
-      }],
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-          maxTicksLimit: 5,
-          stepSize: Math.ceil(250 / 5),
-          max: 250,
-        },
-      }],
-  },
-  elements: {
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-};
-
-
-function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
-  const error = new Error(`HTTP Error ${response.statusText}`);
-  error.status = response.statusText;
-  error.response = response;
-  console.log(error); // eslint-disable-line no-console
-  throw error;
-}
-
-
 
 class StoweDash extends Component {
   constructor(props) {
@@ -582,7 +112,7 @@ class StoweDash extends Component {
           })
       ).catch((err)=> {
         hasFailed = true;
-        console.log('getIncoming has err : >', err)
+       //console.log('getIncoming has err : >', err)
       }),
       await fetch('api/getInque', {
         accept: "application/json",
@@ -602,7 +132,31 @@ class StoweDash extends Component {
       )
       .catch((err)=> {
         hasFailed = true;
-        console.log('getInque has err : >', err)
+        //console.log('getInque has err : >', err)
+      }),
+      await fetch('api/getLongestWait', {
+        accept: "application/json",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(
+        response =>
+          response.json().then(data => ({
+            data: data,
+            status: response.status
+          }
+          )).then(res => {
+            let datestring = res.data.data.recordset[0].longest_Wait_Time.toString();
+           const stringlength = datestring.length;
+            datestring = datestring.slice(11, stringlength);
+            datestring = datestring.slice(0, 8);
+            headerData.longestWaitTime = datestring;
+          })
+      )
+      .catch((err)=> {
+        hasFailed = true;
+        //console.log('getInque has err : >', err)
       }),
       await fetch('api/getOutgoing', {
         accept: "application/json",
@@ -622,7 +176,7 @@ class StoweDash extends Component {
       )
       .catch((err)=> {
         hasFailed = true;
-        console.log('getOutgoing has err : >', err)
+        //console.log('getOutgoing has err : >', err)
       }),
       await fetch('api/getAbandoned', {
         accept: "application/json",
@@ -642,7 +196,7 @@ class StoweDash extends Component {
       )
       .catch((err)=> {
         hasFailed = true;
-        console.log('getAbandoned has err : >', err)
+        //console.log('getAbandoned has err : >', err)
       }),
       await fetch('api/getNoAnswer', {
         accept: "application/json",
@@ -661,24 +215,24 @@ class StoweDash extends Component {
           })
       ).catch((err)=> {
         hasFailed = true;
-        console.log('getNoAnswer has err : >', err)
+        //console.log('getNoAnswer has err : >', err)
       })
     ];
 
     await Promise.all(promises)
       .then(data => {
-        console.log({
-          incoming: headerData.incoming, 
-          inQ:headerData.inQ,
-          outgoing: headerData.outgoing,
-          noAnswer: headerData.noAnswer,
-          abandoned:headerData.abandoned 
-         })
-        if( headerData.incoming !== null  && headerData.inQ  !== null&& headerData.outgoing!== null && headerData.noAnswer!== null && headerData.abandoned!== null){
-          console.log('setting heading data state');
+       // console.log({
+        ///  incoming: headerData.incoming, 
+        ///  inQ:headerData.inQ,
+         // outgoing: headerData.outgoing,
+         // noAnswer: headerData.noAnswer,
+        //  abandoned:headerData.abandoned 
+        // })
+        if( headerData.incoming !== null  && headerData.inQ  !== null&& headerData.outgoing!== null && headerData.noAnswer!== null && headerData.abandoned!== null && headerData.longestWaitTime !== null ){
             this.setState({
               incomingCalls: headerData.incoming,
               inQue: headerData.inQ,
+              longestWaitTime: headerData.longestWaitTime,
               outgoing: headerData.outgoing,
               noAnswer: headerData.noAnswer,
               abandoned: headerData.abandoned,
@@ -686,9 +240,9 @@ class StoweDash extends Component {
         }
       }).catch((err)=> {
         hasFailed = true;
-        console.log('getheader promise has err : >', err)
+       // console.log('getheader promise has err : >', err)
       })
-      console.log('hasFailed ==>',hasFailed);
+     // console.log('hasFailed ==>',hasFailed);
     return headerData;
   }
 
@@ -716,7 +270,7 @@ class StoweDash extends Component {
           })
       ).catch((err)=> {
         hasFailed = true;
-        console.log('agentCallsPerHour has err : >', err)
+        //console.log('agentCallsPerHour has err : >', err)
       }),
       await fetch('api/avgRingTime', {
         accept: "application/json",
@@ -735,7 +289,7 @@ class StoweDash extends Component {
           })
       ).catch((err)=> {
         hasFailed = true;
-        console.log('avgRingTime has err : >', err)
+      //  console.log('avgRingTime has err : >', err)
       }),
     ]
     await Promise.all(promises)
@@ -750,11 +304,12 @@ class StoweDash extends Component {
           datasets: [
             {
               label: 'Calls Per Hour',
-              backgroundColor: 'rgba(255,99,132,0.2)',
-              borderColor: 'rgba(255,99,132,1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-              hoverBorderColor: 'rgba(255,99,132,1)',
+              backgroundColor: backgroundColor,
+              borderColor: borderColor,
+              borderWidth: borderWidth,
+              hoverBackgroundColor: hoverBackgroundColor,
+              hoverBorderColor: hoverBorderColor,
+              //data: [10, 20, 33, 4, 44, 55, 7],
               data: [
                 objPerHr[0].Calls, objPerHr[1].Calls, objPerHr[2].Calls,
                 objPerHr[3].Calls, objPerHr[4].Calls, objPerHr[5].Calls, objPerHr[6].Calls, objPerHr[7].Calls,
@@ -770,11 +325,12 @@ class StoweDash extends Component {
           datasets: [
             {
               label: 'Ring Time Per Hour',
-              backgroundColor: 'rgba(255,99,132,0.2)',
-              borderColor: 'rgba(255,99,132,1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-              hoverBorderColor: 'rgba(255,99,132,1)',
+              backgroundColor: backgroundColor,
+              borderColor: borderColor,
+              borderWidth: borderWidth,
+              hoverBackgroundColor: hoverBackgroundColor,
+              hoverBorderColor: hoverBorderColor,
+              //data: [10, 20, 33, 4, 44, 55, 7],
               data: [
                 objRingPerHr[0].Total, objRingPerHr[1].Total, objRingPerHr[2].Total,
                 objRingPerHr[3].Total, objRingPerHr[4].Total, objRingPerHr[5].Total, objRingPerHr[6].Total, objRingPerHr[7].Total,
@@ -792,9 +348,9 @@ class StoweDash extends Component {
         }
       }).catch((err)=> {
         hasFailed = true;
-        console.log('getHourlyData promise has err : >', err)
+       // console.log('getHourlyData promise has err : >', err)
       });
-      console.log('getHourlyData promise = ',hasFailed)
+     // console.log('getHourlyData promise = ',hasFailed)
       return hourlydata;
   }
 
@@ -819,7 +375,7 @@ class StoweDash extends Component {
         })
         ).then(res => {
           objReturn.agentdata = res.data.data.recordset;
-          console.log('res for agent data:>', res);
+        //  console.log('res for agent data:>', res);
           let names = Object.keys(res.data.data.recordset).map((k, i) => { return res.data.data.recordset[k].A_Name });
           let data = Object.keys(res.data.data.recordset).map((k, i) => { return res.data.data.recordset[k].All_Calls });
 
@@ -828,12 +384,13 @@ class StoweDash extends Component {
             datasets: [
               {
                 label: 'Total Calls Per Agent',
-                backgroundColor: 'rgba(255,99,132,0.2)',
-                borderColor: 'rgba(255,99,132,1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                hoverBorderColor: 'rgba(255,99,132,1)',
+                backgroundColor: backgroundColor,
+                borderColor: borderColor,
+                borderWidth: borderWidth,
+                hoverBackgroundColor: hoverBackgroundColor,
+                hoverBorderColor: hoverBorderColor,
                 data: data,
+               //data: [10, 20, 33, 4, 44, 55, 7],
               },
             ],
           };
@@ -844,10 +401,7 @@ class StoweDash extends Component {
         })
     ];
 
-    console.log('objReturn.agentdata',objReturn.agentdata);
-    console.log('objReturn.callperagent',objReturn.callperagent);
     
-   
 
     await Promise.all(promises)
       .then(data => {
@@ -864,66 +418,40 @@ class StoweDash extends Component {
         console.log('getAgentData 2nd promise has err : >', err)
       });
 
-      console.log('getAgentData has error ',hasError);
+  
     return objReturn;
   }
 
   async fetchHeaderData() {
     // get header data per second
     setInterval(async function () {
-      console.log('get header Data');
       let data = await this.getHeaderData();
-      console.log('awaited header data : ',data );
-
-      console.log('get header Data Done');
-
-    //  this.fetchHeaderData();
-    }.bind(this), 5000);
+    }.bind(this), 1000);
   }
 
   async fetchHourlyData() {
     // get hourly data
     setInterval(async function () {
-
-      console.log('get hourly data');
       let data = await this.getHourlyData();
-      console.log('awaited hourly  data : ',data );
-      console.log('got hourly data');
-
-      //this.fetchHourlyData();
-    }.bind(this), 10000);
+    }.bind(this), 900000);
   }
 
   fetchAgentData() {
     // get hourly data
     setInterval(async function () {
-      console.log('get agent data');
       let data = await this.getAgentData();
-      console.log('awaited agent data : ',data );
-      console.log('got agent data');
-      //this.fetchAgentData();
-    }.bind(this), 15000);
+    }.bind(this), 900000);
   }
 
   async initializeData() {
     // setup initial data calls
-    console.log('initializeData');
     this.fetchHeaderData();
     this.fetchHourlyData();
     this.fetchAgentData();
-    console.log('initializeData Done');
 
-    console.log('getting getAgentData');
     await this.getAgentData();
-    console.log('getting getAgentData Done');
-
-    console.log('getting getHourlyData');
     await this.getHourlyData();
-    console.log('getting getHourlyData Done');
-    
-    console.log('getting fetchAgentData');
     await this.fetchAgentData();
-    console.log('getting fetchAgentData Done');
 
   }
 
@@ -954,98 +482,129 @@ class StoweDash extends Component {
 
         <Row>
         
-          <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-success cardOverwirte flexBox">
+          <Col xs="12" sm="6" lg="2">
+            <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#0ee258'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 100, paddingTop: '10px' }}> {this.state.incomingCalls}</div>
+                <div className="fontOverwrite" style={{  paddingTop: '45px'  }}> {this.state.incomingCalls}</div>
               </CardBody>
-              <div className="chart-wrapper" style={{ height: '70px' }}>
-              <div style={{ fontSize: 27, paddingTop:'30px'}}> Incoming Calls</div>
+              <div className="chart-wrapper mx-3" style={{ height: 90}}>
+              <div  className="text-value" style={{ fontSize: 19, paddingTop:'45px'}}> Incoming Calls</div>
+              </div>
+            </Card>
+          </Col>
+
+          <Col xs="12" sm="6" lg="2">
+            <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#ff0f0d'}}>
+              <CardBody className="pb-0 cardbodyOverwrite">
+                <div className="fontOverwrite" style={{ paddingTop: '45px' }}>{this.state.noAnswer}</div>
+              </CardBody>
+              <div className="chart-wrapper mx-3" style={{ height: 90 }}>
+              <div className="text-value"  style={{ fontSize: 19 , paddingTop:'45px' }}>Ring No Answer</div>
+              </div>
+            </Card>
+          </Col>
+          <Col xs="12" sm="6" lg="2">
+            <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#ff0f0d'}}>
+              <CardBody className="pb-0 cardbodyOverwrite">
+                <div className="fontOverwrite" style={{ paddingTop: '45px' }}>{this.state.abandoned}</div>
+              </CardBody>
+              <div className="chart-wrapper mx-3" style={{ height: 90 }}>
+              <div className="text-value" style={{ fontSize: 19 , paddingTop:'45px'}}>Abandoned Calls</div>
               </div>
             </Card>
           </Col>
 
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-danger cardOverwirte flexBox">
+            <Card className="text-white cardOverwirte flexBox" style={{backgroundColor: '#0cb2ec'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 100 , paddingTop: '10px'}}>{this.state.noAnswer}</div>
-
-                
+                <div className="fontOverwrite" style={{  paddingTop: '45px' }}>{this.state.outgoing}</div>
               </CardBody>
-              <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
-              <div style={{  fontSize: 27, paddingTop:'30px' }}>Ring No Answer</div>
+              <div className="chart-wrapper mx-3" style={{ height: 90 }}>
+              <div className="text-value"  style={{  fontSize: 19, paddingTop:'45px' }}>Outgoing Calls</div>
               </div>
             </Card>
           </Col>
-
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-danger cardOverwirte flexBox">
+            <Card className="text-white cardOverwirte flexBox"  style={{backgroundColor: '#0cb2ec'}}>
               <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 100 , paddingTop: '10px'}}>{this.state.abandoned}</div>
+                {/* <div className="text-value" style={{ fontSize: 170, paddingTop: '45px' }}>{this.state.outgoing}</div> */}
               </CardBody>
-              <div className="chart-wrapper" style={{ height: '70px' }}>
-              <div style={{ fontSize: 27 , paddingTop:'30px'}}>Abandoned Calls</div>
-              </div>
-            </Card>
-          </Col>
-
-          <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-primary cardOverwirte flexBox">
-              <CardBody className="pb-0 cardbodyOverwrite">
-                <div className="text-value" style={{ fontSize: 100, paddingTop: '10px' }}>{this.state.outgoing}</div>
-               
-              </CardBody>
-              <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
-              <div style={{  fontSize: 27, paddingTop:'30px' }}>Outgoing Calls</div>
+                <div className="chart-wrapper mx-3" style={{ height: 234 }}>
+                <div style={{  fontSize: 27, paddingTop:'15px' }}>Waiting Time</div>
+                <br/>
+                <div style={{  fontSize: 79,paddingTop:'5px' }}> {this.state.longestWaitTime}</div>
+                <div style={{  fontSize: 27, paddingTop:'25px' }}>Calls in the Queue</div>
+                <br/>
+                <div style={{  fontSize: 79 , paddingTop:'5px' }}> {this.state.inQue}</div>
               </div>
             </Card>
           </Col>
         </Row> <Row>
           <Col xs="12" sm="6" lg="6">
             <Card className="cardOverwirte">
-              <CardHeader>
+              
+  <CardHeader className="cardHeaderOverride">
+  
                 Amount Of Calls per Hour
               </CardHeader>
-              <CardBody className="cardbodyOverwrite">
-                <div className="chart-wrapper">
+              <CardBody className="cardbodyOverwrite" >
+                <div className="chart-wrapper" style={{height:"19vh"}} >
                   {
-                    this.state.callsPerHour && <Bar data={this.state.callsPerHour} options={options} />
+                    this.state.callsPerHour && <Bar data={this.state.callsPerHour} options={options}  />
                   }
 
                 </div>
               </CardBody>
             </Card>
-            <Card>
-              <CardHeader>
+            <Card className="cardOverwirte">
+             
+  <CardHeader className="cardHeaderOverride">
+  
                 Average Ring Time Per Hour
               </CardHeader>
-              <CardBody className="cardbodyOverwrite">
-                <div className="chart-wrapper">
+              <CardBody className="cardbodyOverwrite" >
+                <div className="chart-wrapper" style={{height:"19vh"}} >
                   {
                     this.state.avgRingTimePerHour && <Bar data={this.state.avgRingTimePerHour} options={options} />
                   }
                 </div>
               </CardBody>
             </Card>
+            <Card className="cardOverwirte" >
+         
+  <CardHeader className="cardHeaderOverride">
+  
+            All Calls Per Agent
+                </CardHeader>
+                <CardBody className="cardbodyOverwrite" >
+                <div className="chart-wrapper" style={{height:"19vh"}} >
+                {
+                  this.state.callsPerAgent && <Bar data={this.state.callsPerAgent} options={options} height={ 200} />
+                }
+              </div>
+          </CardBody>
+        </Card>
           </Col>
           <Col xs="12" sm="6" lg="6">
             <Card className="cardOverwirte">
-              <CardHeader>
+           
+  <CardHeader className="cardHeaderOverride">
+  
                 Agent Queue Statistics
-            </CardHeader><CardBody className="cardbodyOverwrite">
+            </CardHeader><CardBody className="cardbodyTableOverwrite">
                 <Table responsive>
                   <thead>
-                    <tr>
-                      <th>Agents</th>
-                      <th>Status</th>
-                      <th>RNA</th>
-                      <th>Outb. Calls</th>
-                      <th>Ans. Calls</th>
-                      <th>All Calls</th>
+                    <tr style={{ backgroundColor: "grey" }}>
+                      <th style={{ color: "white" }}>Agents</th>
+                      <th style={{ color: "white" }}>Status</th>
+                      <th style={{ color: "white" }}>RNA</th>
+                      <th style={{ color: "white" }}>Outb. Calls</th>
+                      <th style={{ color: "white" }}>Ans. Calls</th>
+                      <th style={{ color: "white" }}>All Calls</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr style={{ backgroundColor: '#f0f3f5' }}><td>NetPOS</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr style={{ backgroundColor: '#f0f3f5' }}><td style={{ fontWeight: 'bold' }}>NetPOS</td><td></td><td></td><td></td><td></td><td></td></tr>
 
 
 
@@ -1059,13 +618,13 @@ class StoweDash extends Component {
                             <td>{data.Ring_No_Answer}</td>
                             <td>{data.OutBound_Calls}</td>
                             <td>{data.Answered_Calls}</td>
-                            <td>{data.All_Calls}</td>
+                            <td style={{ fontWeight: 'bold' }}>{data.All_Calls}</td>
                           </tr>
                         );
                       })}
 
 
-                    <tr style={{ backgroundColor: '#f0f3f5' }}><td>PEC. Namos</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr style={{ backgroundColor: '#f0f3f5' }}><td style={{ fontWeight: 'bold' }}>PEC. Namos</td><td></td><td></td><td></td><td></td><td></td></tr>
                     {this.state.agentData && this.state.agentData['PEC & Namos'] &&
                       Object.keys(this.state.agentData['PEC & Namos']).map((k, i) => {
                         let data = this.state.agentData['PEC & Namos'][k];
@@ -1076,11 +635,11 @@ class StoweDash extends Component {
                             <td>{data.Ring_No_Answer}</td>
                             <td>{data.OutBound_Calls}</td>
                             <td>{data.Answered_Calls}</td>
-                            <td>{data.All_Calls}</td>
+                            <td style={{ fontWeight: 'bold' }}>{data.All_Calls}</td>
                           </tr>
                         );
                       })}
-                    <tr style={{ backgroundColor: '#f0f3f5' }}><td>Retalix</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr style={{ backgroundColor: '#f0f3f5' }}><td style={{ fontWeight: 'bold' }}>Retalix</td><td></td><td></td><td></td><td></td><td></td></tr>
                     {this.state.agentData && this.state.agentData['Retalix'] &&
                       Object.keys(this.state.agentData['Retalix']).map((k, i) => {
                         let data = this.state.agentData['Retalix'][k];
@@ -1091,7 +650,7 @@ class StoweDash extends Component {
                             <td>{data.Ring_No_Answer}</td>
                             <td>{data.OutBound_Calls}</td>
                             <td>{data.Answered_Calls}</td>
-                            <td>{data.All_Calls}</td>
+                            <td style={{ fontWeight: 'bold' }}>{data.All_Calls}</td>
                           </tr>
                         );
                       })}
@@ -1101,18 +660,7 @@ class StoweDash extends Component {
             </Card>
           </Col>
         </Row>
-        <Row> <Col xs="12" sm="12" lg="12"><Card className="cardOverwirte">
-          <CardHeader>
-            All Calls Per Agent
-              </CardHeader>
-          <CardBody className="cardbodyOverwrite">
-            <div className="chart-wrapper">
-              {
-                this.state.callsPerAgent && <Bar data={this.state.callsPerAgent} options={options} />
-              }
-            </div>
-          </CardBody>
-        </Card>
+        <Row> <Col xs="12" sm="12" lg="12">
         </Col>
         </Row>
       </div >
